@@ -9316,6 +9316,6 @@ if data and data.code_ and data.code_ == 400 then
 database:srem(bot_id..'TuBak:Chek:Groups',v)  
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusEditor" then
-database:sadd(bot_id..'TuBak:Chek:Groups',v)  
+database:sadd(bot_id..'BLACKBOTSS:Chek:Groups',v)  
 end end,nil)
-end;end;end
+end;CleangGroups();end;end
