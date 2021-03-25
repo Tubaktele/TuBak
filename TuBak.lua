@@ -7259,21 +7259,6 @@ end
 
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
-local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.TuBak ~= true then
-send(msg.chat_id_,msg.id_,'
-هلو
-'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '- قناة السورس .',url="t.me/TuBakX"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text='..URL.escape(Ch_Member.TuBak)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
-end
 if DevTuBak(msg) then
 local Text = '👋🏻꒐ أهلاً بك ، [المطور الاساسي ](t.me/Tubakx)\n🔽꒐ يمكنك استخدام الاوامر التي ظهرت لك'
 local keyboard = {
