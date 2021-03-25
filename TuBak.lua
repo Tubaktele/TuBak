@@ -9318,4 +9318,4 @@ end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusEditor" then
 database:sadd(bot_id..'TuBak:Chek:Groups',v)  
 end end,nil)
-end;CleangGroups();end;end
+end;end;end
