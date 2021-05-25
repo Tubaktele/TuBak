@@ -74,7 +74,7 @@ RunBot:write([[
 cd $HOME/TuBak
 token="]]..database:get(Server_Done.."Token_Write")..[["
 rm -fr TuBak.lua
-wget "https://raw.githubusercontent.com/TuBak/TuBak/master/TuBak.lua"
+wget "https://raw.githubusercontent.com/TubakTele/TuBak/main/TuBak.lua"
 while(true) do
 rm -fr ../.telegram-cli
 ./tg -s ./TuBak.lua -p PROFILE --bot=$token
