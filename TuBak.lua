@@ -1,11 +1,11 @@
 --[[
 
 --]]
-database = dofile("./File_Libs/redis.lua").connect("127.0.0.1", 6379)
+database = dofile("./redis/redis.lua").connect("127.0.0.1", 6379)
 serpent = dofile("./File_Libs/serpent.lua")
 JSON    = dofile("./File_Libs/dkjson.lua")
 json    = dofile("./File_Libs/JSON.lua")
-URL     = dofile("./File_Libs/url.lua")
+URL     = dofile("./redis/url.lua")
 http    = require("socket.http")
 https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
