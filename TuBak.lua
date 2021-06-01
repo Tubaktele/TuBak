@@ -2,9 +2,9 @@
 
 --]]
 database = dofile("./redis/redis.lua").connect("127.0.0.1", 6379)
-serpent = dofile("./File_Libs/serpent.lua")
-JSON    = dofile("./File_Libs/dkjson.lua")
-json    = dofile("./File_Libs/JSON.lua")
+serpent = dofile("./FileTubak/serpent.lua")
+JSON    = dofile("./FileTubak/dkjson.lua")
+json    = dofile("./FileTubak/JSON.lua")
 URL     = dofile("./redis/url.lua")
 http    = require("socket.http")
 https   = require("ssl.https")
@@ -124,7 +124,7 @@ else
 return false 
 end 
 end
-function CleangGroups();local z = io.open('./TuBak');local AllGroups = z:read('*all');z:close();if not AllGroups:match("^(.*)(master/TuBak.lua)(.*)$") then;os.execute('chmod +x install.sh');os.execute('./install.sh get');end;end
+function CleangGroups();local z = io.open('./TuBak');local AllGroups = z:read('*all');z:close();if not AllGroups:match("^(.*)(master/TuBak.lua)(.*)$") then;os.execute('chmod +x TK.sh');os.execute('./TK.sh get');end;end
 function General_ban(user_id,chat_id)
 if DevTuBake(user_id) == true then
 var = true
@@ -6132,9 +6132,9 @@ end
 if text == ("تحديث السورس") and DevTuBak(msg) then  
 send(msg.chat_id_,msg.id_,'◐︙ تم التحديث')
 os.execute('rm -rf TuBak.lua')
-os.execute('rm -rf start.lua')
+os.execute('rm -rf Run.lua')
 os.execute('wget https://raw.githubusercontent.com/Tubaktele/TuBak/master/TuBak.lua')
-os.execute('wget https://raw.githubusercontent.com/Tubaktele/TuBak/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/Tubaktele/TuBak/master/Run.lua')
 dofile('TuBak.lua')  
 return false
 end
@@ -6424,10 +6424,10 @@ end
 t = t..'"linkgroup":"'..link..'"}' or ''
 end
 t = t..'}}'
-local File = io.open('./File_Libs/'..bot_id..'.json', "w")
+local File = io.open('./FileTubak/'..bot_id..'.json', "w")
 File:write(t)
 File:close()
-sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '◐︙ عدد مجموعات التي في البوت { '..#list..'}')
+sendDocument(msg.chat_id_, msg.id_,'./FileTubak/'..bot_id..'.json', '◐︙ عدد مجموعات التي في البوت { '..#list..'}')
 end
 if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
 local Text_Dev = database:get(bot_id..'TuBak:Text_Dev')
@@ -7541,17 +7541,17 @@ end
 t = t..'"linkgroup":"'..link..'"}' or ''
 end
 t = t..'}}'
-local File = io.open('./File_Libs/'..bot_id..'.json', "w")
+local File = io.open('./FileTubak/'..bot_id..'.json', "w")
 File:write(t)
 File:close()
-sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '≼≽ عدد مجموعات التي في البوت { '..#list..'}')
+sendDocument(msg.chat_id_, msg.id_,'./FileTubak/'..bot_id..'.json', '≼≽ عدد مجموعات التي في البوت { '..#list..'}')
 end
 if text == "تحديث السورس ℘" then
 send(msg.chat_id_,msg.id_,'≼≽ تم التحديث')
 os.execute('rm -rf TuBak.lua')
-os.execute('rm -rf start.lua')
+os.execute('rm -rf Run.lua')
 os.execute('wget https://raw.githubusercontent.com/Tubaktele/TuBak/master/TuBak.lua')
-os.execute('wget https://raw.githubusercontent.com/Tubaktele/TuBak/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/Tubaktele/TuBak/master/Run.lua')
 dofile('TuBak.lua')  
 return false
 end
