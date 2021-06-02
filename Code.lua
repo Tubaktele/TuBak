@@ -1,6 +1,6 @@
 function TuBak(msg)
 local text = msg.content_.text_
-if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
+if Chat_Type == 'GroupBot' and DevTuBak(msg) then
 ----------------------------------------------------------------------------
 if text == "سمايلات" or text == "سمايل" then 
 if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
