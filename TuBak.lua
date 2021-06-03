@@ -6041,7 +6041,7 @@ File:close()
 sendDocument(msg.chat_id_, msg.id_,'./FileTubak/'..bot_id..'.json', '◐︙ عدد مجموعات التي في البوت { '..#list..'}')
 end
 if text == 'معلومات السيرفر' or text == 'السيرفر' then 
-Dev_Abs(msg.chat_id_, msg.id_, 1, io.popen([[
+send(msg.chat_id_, msg.id_, 1, io.popen([[
 LinuxVersion=`lsb_release -ds`
 MemoryUsage=`free -m | awk 'NR==2{printf "%s/%sMB {%.2f%%}\n", $3,$2,$3*100/$2 }'`
 HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
