@@ -6040,6 +6040,22 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,'./FileTubak/'..bot_id..'.json', '◐︙ عدد مجموعات التي في البوت { '..#list..'}')
 end
+if text == 'معلومات السيرفر' or text == 'السيرفر' then 
+Dev_Abs(msg.chat_id_, msg.id_, 1, io.popen([[
+LinuxVersion=`lsb_release -ds`
+MemoryUsage=`free -m | awk 'NR==2{printf "%s/%sMB {%.2f%%}\n", $3,$2,$3*100/$2 }'`
+HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
+Percentage=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
+UpTime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes"}'`
+echo '⌁︙نظام التشغيل ↫ ⤈\n`'"$LinuxVersion"'`' 
+echo '┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁︙الذاكره العشوائيه ↫ ⤈\n`'"$MemoryUsage"'`'
+echo '┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁︙وحدة التخزين ↫ ⤈\n`'"$HardDisk"'`'
+echo '┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁︙المعالج ↫ ⤈\n`'"`grep -c processor /proc/cpuinfo`""Core ~ {$Percentage%} "'`'
+echo '┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁︙الدخول ↫ ⤈\n`'`whoami`'`'
+echo '┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁︙مدة تشغيل السيرفر ↫ ⤈\n`'"$UpTime"'`'
+]]):read('*a'), 1, 'md')
+end
+end
 if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
 local Text_Dev = database:get(bot_id..'TuBak:Text_Dev')
 if Text_Dev then 
