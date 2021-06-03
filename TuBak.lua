@@ -4667,14 +4667,6 @@ if data and data.code_ and data.code_ == 400 and data.message_ == "USER_ADMIN_IN
 send(msg.chat_id_, msg.id_,"◐︙ عذرا لا استطيع طرد ادمنية المجموعه") 
 return false  
 end
-database:set(TuBak..'yes'..msg.sender_user_id_..'', 'delyes')
-database:set(TuBak..'no'..msg.sender_user_id_..'', 'delno')
-local Text = 'هل انت متأكد من المغادره'
-keyboard = {} 
-keyboard.inline_keyboard = {{{text="نعم",callback_data="/delyes"},{text="لا",callback_data="/delno"}}} 
-Msg_id = msg.id_/2097152/0.5
-return https.request("https://api.telegram.org/bot"..TokenBot..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..Msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
 if data and data.ID and data.ID == "Ok" then
 send(msg.chat_id_, msg.id_,"◐︙ تم طردك من المجموعه ") 
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = msg.sender_user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
