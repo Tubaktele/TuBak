@@ -6040,22 +6040,7 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,'./FileTubak/'..bot_id..'.json', '◐︙ عدد مجموعات التي في البوت { '..#list..'}')
 end
-if text == "معلومات السيرفر" or text == "السيرفر" then 
-send(msg.chat_id_, msg.id_, 1, io.popen([[
-LinuxVersion=`lsb_release -ds`
-MemoryUsage=`free -m | awk 'NR==2{printf "%s/%sMB {%.2f%%}\n", $3,$2,$3*100/$2 }'`
-HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
-Percentage=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
-UpTime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes"}'`
-echo '⌁︙نظام التشغيل ↫ ⤈\n`'"$LinuxVersion"'`' 
-echo '┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁︙الذاكره العشوائيه ↫ ⤈\n`'"$MemoryUsage"'`'
-echo '┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁︙وحدة التخزين ↫ ⤈\n`'"$HardDisk"'`'
-echo '┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁︙المعالج ↫ ⤈\n`'"`grep -c processor /proc/cpuinfo`""Core ~ {$Percentage%} "'`'
-echo '┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁︙الدخول ↫ ⤈\n`'`whoami`'`'
-echo '┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁︙مدة تشغيل السيرفر ↫ ⤈\n`'"$UpTime"'`'
-]]):read('*a'), 1, 'md')
-end
-end
+
 if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
 local Text_Dev = database:get(bot_id..'TuBak:Text_Dev')
 if Text_Dev then 
@@ -6065,6 +6050,16 @@ tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data)
 send(msg.chat_id_, msg.id_,"◐︙ المطور :: ["..data.first_name_.."](T.me/"..data.username_..")")  
 end,nil)   
 end
+end
+if text == 'رقمي' then
+tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
+if result.phone_number_  then
+MyNumber = "رقمك ↫ +"..result.phone_number_
+else
+MyNumber = "تم وضع رقمك لجهات اتصالك فقط"
+end
+send(msg.chat_id_, msg.id_,MyNumber)
+end,nil)
 end
 if text == 'الملفات' and DevTuBak(msg) then
 t = '◐︙ جميع الملفات : \n — — — — — — — — — \n'
