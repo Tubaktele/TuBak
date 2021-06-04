@@ -2363,6 +2363,21 @@ database:sadd(bot_id.."TuBak:GBan:User", userid)
 Reply_Status(msg,userid,"reply","◐︙ تم حظره عام من المجموعات")  
 return false
 end
+if text == 'معلومات السيرفر' and DevTuBak(msg) then 
+send(msg.chat_id_, msg.id_, io.popen([[
+linux_version=`lsb_release -ds`
+memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
+HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
+CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
+uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
+echo '⇗ نظام التشغيل ⇖•\n*»» '"$linux_version"'*' 
+echo '*———————————~*\n✯︎✔{ الذاكره العشوائيه } ⇎\n*»» '"$memUsedPrc"'*'
+echo '*———————————~*\n✯︎✔{ وحـده الـتـخـزيـن } ⇎\n*»» '"$HardDisk"'*'
+echo '*———————————~*\n✯︎✔{ الـمــعــالــج } ⇎\n*»» '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
+echo '*———————————~*\n✯︎✔{ الــدخــول } ⇎\n*»» '`whoami`'*'
+echo '*———————————~*\n✯︎✔{ مـده تـشغيـل الـسـيـرفـر }⇎\n*»» '"$uptime"'*'
+]]):read('*all'))  
+end
 if text == ("الغاء العام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevTuBak(msg) then
 function Function_TuBak(extra, result, success)
 database:srem(bot_id.."TuBak:GBan:User", result.sender_user_id_)
@@ -3843,22 +3858,7 @@ local t = "◐︙ عدد البوتات هنا -› {"..c.."}\n◐︙ عدد ا�
 send(msg.chat_id_, msg.id_,t) 
 end 
 end,nil)  
-end
-   if text == 'معلومات السيرفر' and DevTuBak(msg) then 
-send(msg.chat_id_, msg.id_, io.popen([[
-linux_version=`lsb_release -ds`
-memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
-HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
-CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
-uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
-echo '⇗ نظام التشغيل ⇖•\n*»» '"$linux_version"'*' 
-echo '*———————————~*\n✯︎✔{ الذاكره العشوائيه } ⇎\n*»» '"$memUsedPrc"'*'
-echo '*———————————~*\n✯︎✔{ وحـده الـتـخـزيـن } ⇎\n*»» '"$HardDisk"'*'
-echo '*———————————~*\n✯︎✔{ الـمــعــالــج } ⇎\n*»» '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
-echo '*———————————~*\n✯︎✔{ الــدخــول } ⇎\n*»» '`whoami`'*'
-echo '*———————————~*\n✯︎✔{ مـده تـشغيـل الـسـيـرفـر }⇎\n*»» '"$uptime"'*'
-]]):read('*all'))  
-end
+end   
 if text == ("كشف البوتات") and Addictive(msg) then  
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(extra,result,success)
 local admins = result.members_  
