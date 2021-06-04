@@ -7032,8 +7032,7 @@ end
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
 if DevTuBak(msg) then
-local Text = '≼≽ مرحبا بك في اوامر المطور الجاهزه
-≼≽ [قناة السورس](t.me/U5UUUU)'
+local Text = '≼≽ مرحبا بك في اوامر المطور الجاهزه'
 local keyboard = {
 {'الاحصائيات ℘','تغيير المطور الاساسي ℘'},
 {'تفعيل التواصل ℘','تعطيل التواصل ℘'},
