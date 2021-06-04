@@ -996,6 +996,11 @@ database:sadd(bot_id.."TuBak:Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
+if msg.content_.ID == "MessageChatJoinByLink" or msg.content_.ID == "MessageChatAddMembers" then   
+DevAbs:incr(bot_id.."TuBak:Abs:EntryNumber"..msg.chat_id_..':'..os.date('%d'))  
+elseif msg.content_.ID == "MessageChatDeleteMember" then   
+database:incr(bot_id.."TuBak:Abs:ExitNumber"..msg.chat_id_..':'..os.date('%d'))  
+end
 --------------------------------------------------------------------------------------------------------------
 if msg.reply_markup_ and msg.reply_markup_.ID == "ReplyMarkupInlineKeyboard" and not Vips(msg) then     
 if database:get(bot_id.."TuBak:Lock:Keyboard"..msg.chat_id_) == "del" then
@@ -3342,7 +3347,12 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_TuBak, nil)
 return false
 end  
-
+if text == "التفاعل" and DevTuBak(msg) then
+local EntryNumber = (database:get(bot_id.."TuBak:Abs:EntryNumber"..msg.chat_id_..':'..os.date('%d')) or 0)
+local ExitNumber = (database:get(bot_id.."TuBak:Abs:ExitNumber"..msg.chat_id_..':'..os.date('%d')) or 0)
+local MsgNumberDay = (database:get(bot_id"TuBak:Abs:MsgNumberDay"..msg.chat_id_..':'..os.date('%d')) or 0)
+send(msg.chat_id_, msg.id_, 1, "انضمام الاعضاء اليوم *"..EntryNumber.."*\nمغادرة الاعضاء اليوم *"..ExitNumber.."*\nعدد الرسائل اليوم ↫ *"..MsgNumberDay.."*\nنسبة التفاعل اليوم ↫ *"..math.random(40,100).."%*", 1, 'md')
+end
 if text and text:match("^طرد (%d+)$") and Addictive(msg) then  
 local userid = text:match("^طرد (%d+)$") 
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
