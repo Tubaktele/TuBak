@@ -5745,7 +5745,7 @@ send(msg.chat_id_,msg.id_,'◐︙ تم التحديث')
 os.execute('rm -rf TuBak.lua')
 os.execute('rm -rf Run.lua')
 os.execute('wget https://raw.githubusercontent.com/Tubaktele/TuBak/master/TuBak.lua')
-os.execute('wget https://raw.githubusercontent.com/Tubaktele/TuBak/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/Tubaktele/TuBak/master/Run.lua')
 dofile('TuBak.lua')  
 return false
 end
@@ -7048,7 +7048,7 @@ local start = database:get(bot_id.."Start:Bot")
 if start then 
 Test = start
 else
-Text = '◐︙اهلا بك في بوت حماية المجموعات \n◐︙يمكنك اضافتي الى مجموعتك وتفعيلي .\n ⎯ ⎯ ⎯ ⎯'
+Text = "مرحبا انا بوت اسمي "..Namebot.."\n اختصاصي حماية المجموعات\nمن التفليش والسبام والخخ .. . ،\nتفعيلي سهل ومجانا فقط قم برفعي ادمن في مجموعتك وارسل امر تفعيل\nسيتم رفع الادمنيه والمنشئ تلقائيا"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -7591,7 +7591,7 @@ os.execute('rm -rf TuBak.lua')
 os.execute('rm -rf Run.lua')
 os.execute('rm -rf Code.lua')
 os.execute('wget https://raw.githubusercontent.com/Tubaktele/TuBak/master/TuBak.lua')
-os.execute('wget https://raw.githubusercontent.com/Tubaktele/TuBak/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/Tubaktele/TuBak/master/Run.lua')
 dofile('TuBak.lua')  
 return false
 end
