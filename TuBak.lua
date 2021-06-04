@@ -6619,7 +6619,7 @@ if not DevTuBak(msg) then
 send(msg.chat_id_, msg.id_, 1, '⌁︙للمطور الاساسي فقط ', 1, 'md')
 else
 sendDocument(DevId, 0, 0, 1, nil, './TuBak.lua', dl_cb, nil)
-Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙عزيزي المطور تم ارسال نسخة ملف السورس الى الخاص', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '⌁︙عزيزي المطور تم ارسال نسخة ملف السورس الى الخاص', 1, 'md')
 end end
 if text == 'الاوامر' and Addictive(msg) then
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
