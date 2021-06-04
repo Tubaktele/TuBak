@@ -7063,7 +7063,7 @@ local start = database:get(bot_id.."Start:Bot")
 if start then 
 Start_Source = start
 else
-Start_Source = '⌔︙مرحبا انا بوت حماية كروبات\n⌔︙وضيفتي حماية المجموعات من السبام والتفليش والخ...\n⌔︙لتفعيل البوت اضفني الى مجموعاتك قم برفعي مشرف ثم ارسل تفعيل \n⌔︙معرف المطور @['..data.username_..']'
+Start_Source = '⌔︙مرحبا انا بوت حماية كروبات\n⌔︙وضيفتي حماية المجموعات من السبام والتفليش والخ...\n⌔︙لتفعيل البوت اضفني الى مجموعاتك قم برفعي مشرف ثم ارسل تفعيل \n⌔︙معرف المطور'
 end
 SendInline(msg.chat_id_,Start_Source,nil,inline)
 end,nil)
