@@ -7056,19 +7056,19 @@ local keyboard = {
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
 else 
-if not database:get(bot_id..'GranD:Start:Time'..msg.sender_user_id_) then
+if not database:get(bot_id..'TuBak:Start:Time'..msg.sender_user_id_) then
 local start = database:get(bot_id.."Start:Bot")  
 if start then 
 Test = start
 else
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-local inline = {{{text="⌁ المطور .",url="t.me/"..(d.username_ or "TuBaKx")}}}
-Test = '⌔︙مرحبا انا بوت حماية كروبات\n⌔︙وضيفتي حماية المجموعات من السبام والتفليش والخ...\n⌔︙لتفعيل البوت اضفني الى مجموعاتك قم برفعي مشرف ثم ارسل تفعيل \n⌔︙معرف المطور'
-end
-SendInline(msg.chat_id_,Start_Test,nil,inline)
+Test = '⌔︙مرحبا انا بوت حماية كروبات\n⌔︙وضيفتي حماية المجموعات من السبام والتفليش والخ...\n⌔︙لتفعيل البوت اضفني الى مجموعاتك قم برفعي مشرف ثم ارسل تفعيل'
 end,nil)
+end 
+send(msg.chat_id_, msg.id_, Test) 
 end
-database:setex(bot_id..'GranD:Start:Time'..msg.sender_user_id_,300,true)
+end
+database:setex(bot_id..'TuBak:Start:Time'..msg.sender_user_id_,60,true)
 return false
 end
 
