@@ -3350,7 +3350,7 @@ end
 if text == "التفاعل" and DevTuBak(msg) then
 local EntryNumber = (database:get(bot_id.."TuBak:Abs:EntryNumber"..msg.chat_id_..':'..os.date('%d')) or 0)
 local ExitNumber = (database:get(bot_id.."TuBak:Abs:ExitNumber"..msg.chat_id_..':'..os.date('%d')) or 0)
-local MsgNumberDay = (database:get(bot_id"TuBak:Abs:MsgNumberDay"..msg.chat_id_..':'..os.date('%d')) or 0)
+local MsgNumberDay = (database:get(bot_id.."TuBak:Abs:MsgNumberDay"..msg.chat_id_..':'..os.date('%d')) or 0)
 send(msg.chat_id_, msg.id_, 1, "انضمام الاعضاء اليوم *"..EntryNumber.."*\nمغادرة الاعضاء اليوم *"..ExitNumber.."*\nعدد الرسائل اليوم ↫ *"..MsgNumberDay.."*\nنسبة التفاعل اليوم ↫ *"..math.random(40,100).."%*", 1, 'md')
 end
 if text and text:match("^طرد (%d+)$") and Addictive(msg) then  
