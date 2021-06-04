@@ -6061,6 +6061,16 @@ end
 send(msg.chat_id_, msg.id_,MyNumber)
 end,nil)
 end
+if text == 'بابو' then
+tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
+if result.result.bio  then
+MyNumber = "رقمك ↫ +"..result.bio
+else
+MyNumber = "تم وضع رقمك لجهات اتصالك فقط"
+end
+send(msg.chat_id_, msg.id_,MyNumber)
+end,nil)
+end
 if text == 'الملفات' and DevTuBak(msg) then
 t = '◐︙ جميع الملفات : \n — — — — — — — — — \n'
 i = 0
@@ -6614,12 +6624,9 @@ if text == 'رابط الحذف' or text == 'بوت الحذف' then
 Text = [[◐︙ ︙  @LC6BOT   ]]
 send(msg.chat_id_, msg.id_,Text)
 end
-if text == "جلب نسخه السورس" then
-if not DevTuBak(msg) then
-send(msg.chat_id_, msg.id_, 1, '⌁︙للمطور الاساسي فقط ', 1, 'md')
-else
+if text == 'جلب نسخه السورس' then
 sendDocument(DevId, 0, 0, 1, nil, './TuBak.lua', dl_cb, nil)
-send(msg.chat_id_, msg.id_, 1, '⌁︙عزيزي المطور تم ارسال نسخة ملف السورس الى الخاص', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, 'عزيزي المطور تم ارسال نسخة ملف السورس الى الخاص', 1, 'md')
 end end
 if text == 'الاوامر' and Addictive(msg) then
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
