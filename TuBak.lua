@@ -6063,7 +6063,7 @@ end,nil)
 end
 if text == 'بابو' then
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
-if result.result.bio  then
+if result.bio  then
 MyNumber = "رقمك ↫ +"..result.bio
 else
 MyNumber = "تم وضع رقمك لجهات اتصالك فقط"
