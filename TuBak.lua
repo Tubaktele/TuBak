@@ -1623,6 +1623,16 @@ database:del(bot_id.."TuBak:Lock:Cmd"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"unlock","◐︙ تم فتح الشارحه")  
 return false
 end 
+if text == "تعطيل المسح التلقائي" and Owner(msg) and DevTuBak(msg) then        
+database:set(bot_id.."TuBak:allM"..msg.chat_id_,true)
+Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تعطيل المسح التلقائي للميديا')
+return false
+end 
+if text == "تفعيل المسح التلقائي" and Owner(msg) and DevTuBak(msg) then        
+database:del(bot_id.."TuBak:allM"..msg.chat_id_)
+Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل المسح التلقائي للميديا')
+return false
+end 
 if text == "قفل الصور"and Addictive(msg) then
 database:set(bot_id.."TuBak:Lock:Photo"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","◐︙ تم قفـل الصور")  
@@ -3630,6 +3640,7 @@ end
 end,nil)
 end,nil)
 end
+
 if text == "مسح الرابط" or text == "حذف الرابط" then
 if Addictive(msg) then     
 send(msg.chat_id_,msg.id_,"◐︙ تم مسح الرابط ")           
@@ -3680,7 +3691,7 @@ DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
 send(msg.chat_id_, msg.id_,'• تم تنظيف الميديا المعدله')
 end
-if not database:get(bot_id.."y:TuBak:allM"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
+if not database:get(bot_id.."TuBak:allM"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
 local gmedia = database:scard(bot_id.."TuBak:allM"..msg.chat_id_)  
 if gmedia == 200 then
 local liste = database:smembers(bot_id.."TuBak:allM"..msg.chat_id_)
