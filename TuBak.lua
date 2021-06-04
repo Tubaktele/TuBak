@@ -3638,7 +3638,7 @@ return false
 end
 return false  
 end
-if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
+if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then      
 database:sadd(bot_id.."TuBak:allM"..msg.chat_id_, msg.id_)
 end
 if text == ("امسح") and cleaner(msg) then  
@@ -3646,28 +3646,54 @@ local list = database:smembers(bot_id.."TuBak:allM"..msg.chat_id_)
 for k,v in pairs(list) do
 local Message = v
 if Message then
-t = "◐︙ تم مسح "..k.." من الوسائط الموجوده"
+t = "• تم مسح "..k.." من الوسائط الموجوده"
 DeleteMessage(msg.chat_id_,{[0]=Message})
 database:del(bot_id.."TuBak:allM"..msg.chat_id_)
 end
 end
 if #list == 0 then
-t = "◐︙ لا يوجد ميديا في المجموعه"
+t = "• لا يوجد ميديا في المجموعه"
 end
 send(msg.chat_id_, msg.id_, t)
 end
 if text == ("عدد الميديا") and cleaner(msg) then  
-local num = database:smembers(bot_id.."TuBak:allM"..msg.chat_id_)
-for k,v in pairs(num) do
-local numl = v
-if numl then
-l = "◐︙ عدد الميديا الموجود هو "..k
+local gmria = database:scard(bot_id.."TuBak:allM"..msg.chat_id_)  
+send(msg.chat_id_, msg.id_,"• عدد الميديا الموجود هو (* "..gmria.." *)")
+end
+if text == "امسح" and cleaner(msg) and DevTuBak(msg) then   
+Msgs = {[0]=msg.id_}
+local Message = msg.id_
+for i=1,200 do
+Message = Message - 1048576
+Msgs[i] = Message
+end
+tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data)
+new = 0
+Msgs2 = {}
+for i=0 ,data.total_count_ do
+if data.messages_[i] and (not data.messages_[i].edit_date_ or data.messages_[i].edit_date_ ~= 0) then
+Msgs2[new] = data.messages_[i].id_
+new = new + 1
 end
 end
-if #num == 0 then
-l = "◐︙ لا يوجد ميديا في المجموعه"
+DeleteMessage(msg.chat_id_,Msgs2)
+end,nil)  
+send(msg.chat_id_, msg.id_,'• تم تنظيف الميديا المعدله')
 end
-send(msg.chat_id_, msg.id_, l)
+if not database:get(bot_id.."y:TuBak:allM"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
+local gmedia = database:scard(bot_id.."TuBak:allM"..msg.chat_id_)  
+if gmedia == 200 then
+local liste = database:smembers(bot_id.."TuBak:allM"..msg.chat_id_)
+for k,v in pairs(liste) do
+local Mesge = v
+if Mesge then
+t = "• تم مسح "..k.." من الوسائط تلقائيا\n• يمكنك تعطيل الميزه بستخدام الامر ( `تعطيل المسح التلقائي` )"
+DeleteMessage(msg.chat_id_,{[0]=Mesge})
+end
+end
+send(msg.chat_id_, msg.id_, t)
+database:del(bot_id.."TuBak:allM"..msg.chat_id_)
+end
 end
 if text and text:match("^ضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 or text and text:match("^وضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 then  
 database:set(bot_id.."TuBak:Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_,true) 
