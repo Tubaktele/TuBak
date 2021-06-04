@@ -7058,17 +7058,17 @@ send_inline_key(msg.chat_id_,Text,keyboard)
 else
 if not database:get(bot_id..'GranD:Start:Time'..msg.sender_user_id_) then
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-local inline = {{{text="⌁ المطور .",url="t.me/"..(b.username_ or "TuBaKx")}}}
+local inline = {{{text="⌁ المطور .",url="t.me/"..(d.username_ or "TuBaKx")}}}
 local start = database:get(bot_id.."Start:Bot")  
 if start then 
 Start_Source = start
 else
-Start_Source = "⌁︙مرحبا انا بوت اسمي "..NameBot.."\n⌁︙اختصاصي حماية المجموعات\n⌁︙من التفليش والسبام والخخ .. . ،\n⌁︙تفعيلي سهل ومجانا فقط قم برفعي ادمن في مجموعتك وارسل امر ↫ تفعيل\n⌁︙سيتم رفع الادمنيه والمنشئ تلقائيا"
-end 
+Start_Source = '⌔︙مرحبا انا بوت حماية كروبات\n⌔︙وضيفتي حماية المجموعات من السبام والتفليش والخ...\n⌔︙لتفعيل البوت اضفني الى مجموعاتك قم برفعي مشرف ثم ارسل تفعيل \n⌔︙معرف المطور @['..data.username_..']'
+end
 SendInline(msg.chat_id_,Start_Source,nil,inline)
 end,nil)
-end
-database:setex(bot_id..'GranD:Start:Time'..msg.sender_user_id_,60,true)
+end 
+database:setex(bot_id..'GranD:Start:Time'..msg.sender_user_id_,300,true)
 return false
 end
 
