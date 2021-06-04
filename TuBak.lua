@@ -6061,16 +6061,6 @@ end
 send(msg.chat_id_, msg.id_,MyNumber)
 end,nil)
 end
-if text == 'بابو' then
-tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
-if result.bio  then
-MyNumber = "رقمك ↫ +"..result.bio
-else
-MyNumber = "تم وضع رقمك لجهات اتصالك فقط"
-end
-send(msg.chat_id_, msg.id_,MyNumber)
-end,nil)
-end
 if text == 'الملفات' and DevTuBak(msg) then
 t = '◐︙ جميع الملفات : \n — — — — — — — — — \n'
 i = 0
