@@ -6067,7 +6067,7 @@ end
 end
 if text:match("^رسائلي اليوم$") then
 local mes = database:get(bot_id.."TuBak:nummsg"..bot_id..os.date('%d')..':'..msg.chat_id_..':'..msg.sender_user_id_) or 0
-send(msg.chat_id_, msg.id_, 1, " رسائلك اليوم ، "..mes..", 1, 'md')
+send(msg.chat_id_, msg.id_,mes)
 end
 if text == 'رقمي' then
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
