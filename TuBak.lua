@@ -7069,7 +7069,7 @@ end
 SendInline(msg.chat_id_,Start_Source,nil,inline)
 end,nil)
 end 
-database:setex(bot_id..'GranD:Start:Time'..msg.sender_user_id_,300,true)
+database:setex(bot_id..'GranD:Start:Time'..msg.sender_user_id_,60,true)
 return false
 end
 
