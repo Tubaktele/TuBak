@@ -1528,6 +1528,11 @@ database:set(bot_id.."TuBak:Lock:Link"..msg.chat_id_,"del")
 Reply_Status(msg,msg.sender_user_id_,"lock","◐︙ تم قفـل الروابط")  
 return false
 end 
+if text == "تعطيل المسح التلقائي" and Owner(msg) and DevTuBak(msg) then        
+database:set(bot_id.."TuBak:allM"..msg.chat_id_,true)
+Reply_Status(msg,msg.sender_user_id_,"lock","• تم تعطيل المسح التلقائي للميديا")
+return false
+end 
 if text == "قفل الروابط بالتقيد" and Addictive(msg) then
 database:set(bot_id.."TuBak:Lock:Link"..msg.chat_id_,"ked")  
 Reply_Status(msg,msg.sender_user_id_,"lockkid","◐︙ تم قفـل الروابط")  
@@ -1623,19 +1628,14 @@ database:del(bot_id.."TuBak:Lock:Cmd"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"unlock","◐︙ تم فتح الشارحه")  
 return false
 end 
-if text == "تعطيل المسح التلقائي" and Owner(msg) and DevTuBak(msg) then        
-database:set(bot_id.."TuBak:allM"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock","• تم تعطيل المسح التلقائي للميديا")
-return false
-end 
-if text == "تفعيل المسح التلقائي" and Owner(msg) and DevTuBak(msg) then        
-database:del(bot_id.."TuBak:allM"..msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"lock","• تم تفعيل المسح التلقائي للميديا")
-return false
-end 
 if text == "قفل الصور"and Addictive(msg) then
 database:set(bot_id.."TuBak:Lock:Photo"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","◐︙ تم قفـل الصور")  
+return false
+end
+ if text == "تفعيل المسح التلقائي" and Owner(msg) and DevTuBak(msg) then        
+database:del(bot_id.."TuBak:allM"..msg.chat_id_)
+Reply_Status(msg,msg.sender_user_id_,"lock","• تم تفعيل المسح التلقائي للميديا")
 return false
 end 
 if text == "قفل الاباحي"and Addictive(msg) then
