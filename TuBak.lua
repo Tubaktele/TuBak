@@ -1625,12 +1625,12 @@ return false
 end 
 if text == "تعطيل المسح التلقائي" and Owner(msg) and DevTuBak(msg) then        
 database:set(bot_id.."TuBak:allM"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تعطيل المسح التلقائي للميديا')
+Reply_Status(msg,msg.sender_user_id_,"lock","• تم تعطيل المسح التلقائي للميديا")
 return false
 end 
 if text == "تفعيل المسح التلقائي" and Owner(msg) and DevTuBak(msg) then        
 database:del(bot_id.."TuBak:allM"..msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل المسح التلقائي للميديا')
+Reply_Status(msg,msg.sender_user_id_,"lock","• تم تفعيل المسح التلقائي للميديا")
 return false
 end 
 if text == "قفل الصور"and Addictive(msg) then
