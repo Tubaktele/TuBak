@@ -7055,8 +7055,7 @@ local keyboard = {
 {'الغاء ℘'}
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
-else
-text == '/start' and DevTuBak(msg) then
+else 
 if not database:get(bot_id..'GranD:Start:Time'..msg.sender_user_id_) then
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
 local inline = {{{text="⌁ المطور .",url="t.me/"..(d.username_ or "TuBaKx")}}}
