@@ -7056,25 +7056,19 @@ local keyboard = {
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
 else
-if not database:get(bot_id..'TuBak:Start:Time'..msg.sender_user_id_) then
+if not database:get(bot_id..'GranD:Start:Time'..msg.sender_user_id_) then
+tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
 local inline = {{{text="⌁ المطور .",url="t.me/"..(b.username_ or "TuBaKx")}}}
 local start = database:get(bot_id.."Start:Bot")  
 if start then 
-Test = start
+Start_Source = start
 else
-Text = "مرحبا انا بوت اسمي "..Namebot.."\n اختصاصي حماية المجموعات\nمن التفليش والسبام والخخ .. . ،\nتفعيلي سهل ومجانا فقط قم برفعي ادمن في مجموعتك وارسل امر تفعيل\n - معرف المطور  رفع الادمنيه والمنشئ تلقائيا "..UserName..""
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'TeamTuBak',url="t.me/TubAkx"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+Start_Source = "⌁︙مرحبا انا بوت اسمي "..NameBot.."\n⌁︙اختصاصي حماية المجموعات\n⌁︙من التفليش والسبام والخخ .. . ،\n⌁︙تفعيلي سهل ومجانا فقط قم برفعي ادمن في مجموعتك وارسل امر ↫ تفعيل\n⌁︙سيتم رفع الادمنيه والمنشئ تلقائيا"
+end 
+SendInline(msg.chat_id_,Start_Source,nil,inline)
+end,nil)
 end
-end
-end
-database:setex(bot_id..'TuBak:Start:Time'..msg.sender_user_id_,60,true)
+database:setex(bot_id..'GranD:Start:Time'..msg.sender_user_id_,60,true)
 return false
 end
 
