@@ -7057,6 +7057,7 @@ local keyboard = {
 send_inline_key(msg.chat_id_,Text,keyboard)
 else
 if not database:get(bot_id..'TuBak:Start:Time'..msg.sender_user_id_) then
+local inline = {{{text="⌁ المطور .",url="t.me/"..(b.username_ or "TuBaKx")}}}
 local start = database:get(bot_id.."Start:Bot")  
 if start then 
 Test = start
