@@ -6614,7 +6614,7 @@ if text == 'رابط الحذف' or text == 'بوت الحذف' then
 Text = [[◐︙ ︙  @LC6BOT   ]]
 send(msg.chat_id_, msg.id_,Text)
 end
-if text == 'جلب نسخه السورس' then
+if text == "جلب نسخه السورس" then
 if not DevTuBak(msg) then
 send(msg.chat_id_, msg.id_, 1, '⌁︙للمطور الاساسي فقط ', 1, 'md')
 else
