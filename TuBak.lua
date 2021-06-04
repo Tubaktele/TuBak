@@ -3693,7 +3693,7 @@ send(msg.chat_id_, msg.id_,'• تم تنظيف الميديا المعدله')
 end
 if not database:get(bot_id.."TuBak:allM"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
 local gmedia = database:scard(bot_id.."TuBak:allM"..msg.chat_id_)  
-if gmedia == 200 then
+if gmedia == 10 then
 local liste = database:smembers(bot_id.."TuBak:allM"..msg.chat_id_)
 for k,v in pairs(liste) do
 local Mesge = v
