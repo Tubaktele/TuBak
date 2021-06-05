@@ -7805,6 +7805,19 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
+if text == 'م1' or text == 'م2' or text == 'م3' or text == 'م4' or text == 'م5' and GetSourseMember(msg) then     
+Text = [[
+اهلا عزيزي
+لايوجد هاكذا اوامر في البوت
+اضغط على الاوامر في الاسفل وتحكم في الازرار
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'اضغط على الاوامر',callback_data="/help"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
 if DAata and DAata:match("^animation(.*)$") and Addictive(data) then  
 idch = DAata:match("-100(%d+)")
 local idchci = "-100"..idch
