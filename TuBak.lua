@@ -6872,13 +6872,11 @@ if Chat_Type == 'UserBot' then
 if text == '/start' then  
 if DevTuBak(msg) then
 local Teeeext =[[
-hello Mohammed
+مرحبا بك اوامر المطور 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'تعطيل التواصل ℘', callback_data="/tall"},{text = '②', callback_data="/helpy2"},{text = '③', callback_data="/helgp3"}},
-{{text = '④', callback_data="/hgelp4"},{text = '⑤', callback_data="/helpu5"}},
-{{text = 'اوامر التسليه', callback_data="/help1g0"}},
+{{text = 'تعطيل التواصل', callback_data="/tw1"},{text = 'تفعيل التواصل', callback_data="/tw2"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Teeeext).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -7026,12 +7024,12 @@ Text = '≼≽ تمت ارسال البصمه اليه .. '
 end     
 sendText(Id_Sudo,Text..'\n'..'≼≽ ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
 end,nil);end,nil);end,nil);end,nil);end 
-if DevTuBak(msg) then
-if text == 'تفعيل التواصل ℘' then  
+
+if DAata == '/tw2' then
 database:del(bot_id..'Texting:In:Bv') 
 send(msg.chat_id_, msg.id_,'≼≽ تم تفعيل التواصل ') 
 end
-if DAata == '/tall' then
+if text == 'تعطيل التواصل ℘' then  
 database:set(bot_id..'Texting:In:Bv',true) 
 send(msg.chat_id_, msg.id_,'≼≽ تم تعطيل التواصل ') 
 end
@@ -7741,7 +7739,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-if DAata == '/tall' then
+if DAata == '/help10' then
 if not Addictive(data) then
 local notText = '• عذرا الاوامر هذه لا تخصك'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
