@@ -6675,28 +6675,6 @@ if text == 'رابط الحذف' or text == 'بوت الحذف' then
 Text = [[◐︙ ︙  @LC6BOT   ]]
 send(msg.chat_id_, msg.id_,Text)
 end
-if text == 'الاوامر' DevTuBak(msg) then
-if not Addictive(msg) then
-send(msg.chat_id_, msg.id_,'• عذرا الاوامر هذا لا تخصك ') 
-return false
-end
-local Text =[[
-*ʜɪ ɴɪɢɢᴀ
-●○━━━━━𝘕𝘎━━━━━○●
-•  ① > لعرض اوامر الحمايه
-•  ② > لعرض اوامر الخدميه
-•  ③ > لعرض اوامر المدراء
-•  ④ > لعرض اوامر المنشئين
-•  ⑤ > لعرض اوامر المطورين
-●○━━━━━𝘕𝘎━━━━━○●*
-𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/NiggA_SoUrcE) •
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '①', callback_data="/help1"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
-{{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"}},
-{{text = 'اوامر التسليه', callback_data="/help10"}},
-}
 end ---- Chat_Type = 'GroupBot' 
 end ---- Chat_Type = 'GroupBot' 
 
