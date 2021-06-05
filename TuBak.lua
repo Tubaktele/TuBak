@@ -7024,6 +7024,26 @@ Text = '≼≽ تمت ارسال البصمه اليه .. '
 end     
 sendText(Id_Sudo,Text..'\n'..'≼≽ ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
 end,nil);end,nil);end,nil);end,nil);end 
+
+if DAata == '/tw2' then
+if DevTuBak(msg) then
+local Teext =[[
+⌔︙تم تفعيل التواصل
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'رجوع', callback_data="/back"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if text == 'تفعيل التواصل ℘' then  
+database:del(bot_id..'Texting:In:Bv') 
+send(msg.chat_id_, msg.id_,'≼≽ تم تفعيل التواصل ') 
+end
+if text == 'تعطيل التواصل ℘' then  
+database:set(bot_id..'Texting:In:Bv',true) 
+send(msg.chat_id_, msg.id_,'≼≽ تم تعطيل التواصل ') 
+end
 if text =='الاحصائيات ℘' then
 local Groups = database:scard(bot_id..'TuBak:Chek:Groups')  
 local Users = database:scard(bot_id..'TuBak:UsersBot')  
