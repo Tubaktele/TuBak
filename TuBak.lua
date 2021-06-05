@@ -7025,20 +7025,6 @@ end
 sendText(Id_Sudo,Text..'\n'..'≼≽ ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
 end,nil);end,nil);end,nil);end,nil);end 
 if DevTuBak(msg) then
-if data.ID == "UpdateNewCallbackQuery" then
-local Chat_id = data.chat_id_
-local From_id = data.id_
-local Msg_id = data.message_id_
-local msg_idd = Msg_id/2097152/0.5
-local DAata = data.payload_.data_
-if DAata == '/tw2' then  
-database:del(bot_id..'Texting:In:Bv') 
-send(msg.chat_id_, msg.id_,'≼≽ تم تفعيل التواصل ') 
-end
-if DAata == '/tw1' then
-database:set(bot_id..'Texting:In:Bv',true) 
-send(msg.chat_id_, msg.id_,'≼≽ تم تعطيل التواصل ') 
-end
 if text =='الاحصائيات ℘' then
 local Groups = database:scard(bot_id..'TuBak:Chek:Groups')  
 local Users = database:scard(bot_id..'TuBak:UsersBot')  
