@@ -6671,6 +6671,23 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
+if text == 'م1' or text == 'م2' or text == 'ياسورس' or text == 'يا سورس' then
+if Addictive(msg) then
+Text = [[
+اهلا عزيزي
+لايوجد هاكذا اوامر في البوت
+اضغط على الاوامر في الاسفل وتحكم في الازرار
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'اوامر التسليه', callback_data="/help"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
 if text == 'رابط الحذف' or text == 'بوت الحذف' then  
 Text = [[◐︙ ︙  @LC6BOT   ]]
 send(msg.chat_id_, msg.id_,Text)
@@ -6854,29 +6871,18 @@ end
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
 if DevTuBak(msg) then
-local Text = '≼≽ مرحبا بك في اوامر المطور الجاهزه'
-local keyboard = {
-{'الاحصائيات ℘','تغيير المطور الاساسي ℘'},
-{'تفعيل التواصل ℘','تعطيل التواصل ℘'},
-{'تنظيف الكروبات ℘','تنظيف المشتركين ℘'},
-{'تفعيل البوت الخدمي ℘','تعطيل البوت الخدمي ℘'},
-{'اذاعه خاص ℘','المطورين ℘','اذاعه ℘'},
-{'اذاعه بالتوجيه ℘','اذاعه بالتوجيه خاص ℘'},
-{'تفعيل الاذاعه ℘','تعطيل الاذاعه ℘'},
-{'تفعيل المغادره ℘','تعطيل المغادره ℘'},
-{'مسح قائمه العام ℘','مسح المطورين ℘'},
-{'حذف كليشه ستارت ℘','ضع كليشه ستارت ℘'},
-{'- تعطيل الاشتراك الاجباري ℘ .'},
-{'- تغير الاشتراك ℘ .','حذف رساله الاشتراك ℘ .'},
-{'- تفعيل الاشتراك الاجباري ℘ .'},
-{'- الاشتراك الاجباري ℘ .'},
-{'- تعين قناة الاشتراك ℘ .','- تغير رساله الاشتراك ℘ .'},
-{'تحديث السورس ℘','تحديث الملفات ℘'},
-{'قائمه العام ℘'},
-{'جلب نسخه احتياطيه ℘'},
-{'الغاء ℘'}
+local Teeeext =[[
+hello Mohammed
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'تعطيل التواصل ℘', callback_data="/tall"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
+{{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"}},
+{{text = 'اوامر التسليه', callback_data="/help10"}},
 }
-send_inline_key(msg.chat_id_,Text,keyboard)
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Teeeext).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 else 
 if not database:get(bot_id..'TuBak:Start:Time'..msg.sender_user_id_) then
 local start = database:get(bot_id.."Start:Bot")  
@@ -7025,7 +7031,7 @@ if text == 'تفعيل التواصل ℘' then
 database:del(bot_id..'Texting:In:Bv') 
 send(msg.chat_id_, msg.id_,'≼≽ تم تفعيل التواصل ') 
 end
-if text == 'تعطيل التواصل ℘' then  
+if DAata == '/tall' then
 database:set(bot_id..'Texting:In:Bv',true) 
 send(msg.chat_id_, msg.id_,'≼≽ تم تعطيل التواصل ') 
 end
@@ -7735,7 +7741,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-if DAata == '/help10' then
+if DAata == '/tall' then
 if not Addictive(data) then
 local notText = '• عذرا الاوامر هذه لا تخصك'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
@@ -7805,18 +7811,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-if text == 'م1' DevTuBak(msg) then
-local Teesxt =[[
-اهلا عزيزي
-لايوجد هاكذا اوامر في البوت
-اضغط على الاوامر في الاسفل وتحكم في الازرار
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'اضغط هنا لرؤيه الاوامر', callback_data="/help"},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teesxt)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
+
 if DAata and DAata:match("^animation(.*)$") and Addictive(data) then  
 idch = DAata:match("-100(%d+)")
 local idchci = "-100"..idch
