@@ -7024,12 +7024,11 @@ Text = '≼≽ تمت ارسال البصمه اليه .. '
 end     
 sendText(Id_Sudo,Text..'\n'..'≼≽ ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
 end,nil);end,nil);end,nil);end,nil);end 
-
-if DAata == '/tw2' then
+if DAata == '/tw1' then
 database:del(bot_id..'Texting:In:Bv') 
 send(msg.chat_id_, msg.id_,'≼≽ تم تفعيل التواصل ') 
 end
-if text == 'تعطيل التواصل ℘' then  
+if DAata == '/tw2' then  
 database:set(bot_id..'Texting:In:Bv',true) 
 send(msg.chat_id_, msg.id_,'≼≽ تم تعطيل التواصل ') 
 end
