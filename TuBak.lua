@@ -3227,6 +3227,16 @@ return false
 end
 end
 end
+if text == "تعطيل المسح التلقائي" and Owner(msg) and DevTuBak(msg) then        
+database:set(bot_id.."y:TuBak:msg:media"..msg.chat_id_,true)
+Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تعطيل المسح التلقائي للميديا')
+return false
+end 
+if text == "تفعيل المسح التلقائي" and Owner(msg) and DevTuBak(msg) then        
+database:del(bot_id.."y:TuBak:msg:media"..msg.chat_id_)
+Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل المسح التلقائي للميديا')
+return false
+end
 if text == 'فتح الفشار' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:del(bot_id..'TuBak:lock:Fshar'..msg.chat_id_) 
 Reply_Status(msg,msg.sender_user_id_,"lock","◐︙ تـم فـتح الفشار\n")  
@@ -3671,7 +3681,7 @@ if text == ("عدد الميديا") and cleaner(msg) then
 local gmria = database:scard(bot_id.."TuBak:msg:media"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,"• عدد الميديا الموجود هو (* "..gmria.." *)")
 end
-if text == "امسح" and cleaner(msg) and DevTuBak(msg) then   
+if text == "امسح" and cleaner(msg) and GetSourseMember(msg) then   
 Msgs = {[0]=msg.id_}
 local Message = msg.id_
 for i=1,200 do
@@ -3691,9 +3701,9 @@ DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
 send(msg.chat_id_, msg.id_,'• تم تنظيف الميديا المعدله')
 end
-if not database:get(bot_id.."TuBak:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
+if not database:get(bot_id.."y:TuBak:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
 local gmedia = database:scard(bot_id.."TuBak:msg:media"..msg.chat_id_)  
-if gmedia == 10 then
+if gmedia == 200 then
 local liste = database:smembers(bot_id.."TuBak:msg:media"..msg.chat_id_)
 for k,v in pairs(liste) do
 local Mesge = v
