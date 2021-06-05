@@ -7780,6 +7780,31 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
+if DAata == '/help' then
+if not Addictive(data) then
+local notText = '• عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+*ʜɪ ɴɪɢɢᴀ
+●○━━━━━𝘕𝘎━━━━━○●
+•  ① > لعرض اوامر الحمايه
+•  ② > لعرض اوامر الخدميه
+•  ③ > لعرض اوامر المدراء
+•  ④ > لعرض اوامر المنشئين
+•  ⑤ > لعرض اوامر المطورين
+●○━━━━━𝘕𝘎━━━━━○●*
+𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/NiggA_SoUrcE)•
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '①', callback_data="/help1"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
+{{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"}},
+{{text = 'اوامر التسليه', callback_data="/help10"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
 if DAata and DAata:match("^animation(.*)$") and Addictive(data) then  
 idch = DAata:match("-100(%d+)")
 local idchci = "-100"..idch
