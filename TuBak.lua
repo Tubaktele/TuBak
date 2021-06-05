@@ -414,7 +414,7 @@ ID="InputMessageAudio",
 audio_ = GetInputFile(audio),
 duration_ = "",
 title_ = title or "",
-performer_ = "سورس محمد الرسمي",
+performer_ = "سورس توباك الرسمي",
 caption_ = caption or ""
 }},func or dl_cb,nil)
 end
@@ -492,22 +492,22 @@ function Reply_Status(msg,user_id,status,text)
 tdcli_function ({ID = "GetUser",user_id_ = user_id},function(arg,data) 
 if data.first_name_ ~= false then
 local UserName = (data.username_ or "TuBaKx")
-local NameUser = "[- 𝙈𝙊𝙃𝘼𝙈𝙀𝘿 𝙍𝙎𝙃𝙀𝙀𝘿 𖡊 .](https://t.me/TuBaKx)\n — — — — — — — — —\n◐︙ بواسطه -› ["..data.first_name_.."](T.me/"..UserName..")"
-local NameUserr = "[- 𝙈𝙊𝙃𝘼𝙈𝙀𝘿 𝙍𝙎𝙃𝙀𝙀𝘿 𖡊 .](https://t.me/TuBaKx)\n — — — — — — — — —\n◐︙ اسم المستخدم -› ["..data.first_name_.."](T.me/"..UserName..")"
+local NameUser = "◐︙ بواسطه -› ["..data.first_name_.."](T.me/"..UserName..")"
+local NameUserr = "◐︙ اسم المستخدم -› ["..data.first_name_.."](T.me/"..UserName..")"
 if status == "lock" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n— — — — — — — — —\n◐︙ تم تنفيذ الامر بخاصيه ( المسح )\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n◐︙ تم تنفيذ الامر بخاصيه ( المسح )\n")
 return false
 end
 if status == "lockktm" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n— — — — — — — — —\n◐︙ تم تنفيذ الامر بخاصيه ( الكتم )\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n◐︙ تم تنفيذ الامر بخاصيه ( الكتم )\n")
 return false
 end
 if status == "lockkick" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n— — — — — — — — —\n◐︙ تم تنفيذ الامر بخاصيه ( الطرد )\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n◐︙ تم تنفيذ الامر بخاصيه ( الطرد )\n")
 return false
 end
 if status == "lockkid" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n— — — — — — — — —\n◐︙ تم تنفيذ الامر بخاصيه ( التقييد )\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n◐︙ تم تنفيذ الامر بخاصيه ( التقييد )\n")
 return false
 end
 if status == "unlock" then
@@ -3703,12 +3703,12 @@ send(msg.chat_id_, msg.id_,'• تم تنظيف الميديا المعدله')
 end
 if not database:get(bot_id.."y:TuBak:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
 local gmedia = database:scard(bot_id.."TuBak:msg:media"..msg.chat_id_)  
-if gmedia == 10 then
+if gmedia == 40 then
 local liste = database:smembers(bot_id.."TuBak:msg:media"..msg.chat_id_)
 for k,v in pairs(liste) do
 local Mesge = v
 if Mesge then
-t = "• تم مسح "..k.." من الوسائط تلقائيا\n• يمكنك تعطيل الميزه بستخدام الامر ( `تعطيل المسح التلقائي` )"
+t = "• تم مسح ("..k..") من الوسائط تلقائيا\n\n• يمكنك تعطيل الميزه بستخدام\N• الامر ( `تعطيل المسح التلقائي` )"
 DeleteMessage(msg.chat_id_,{[0]=Mesge})
 end
 end
@@ -4093,7 +4093,7 @@ send(msg.chat_id_, msg.id_,t)
 end
 if text == "مسح المنظفين" and BasicConstructor(msg) then  
 database:del(bot_id.."TuBak:MN:TF"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, "🗑︙ تم مسح  قائمة المنظفين  ")
+send(msg.chat_id_, msg.id_, "◐︙ تم مسح  قائمة المنظفين  ")
 end
 if text == ("المنظفين") and Owner(msg) then  
 local list = database:smembers(bot_id.."TuBak:MN:TF"..msg.chat_id_)
@@ -4291,6 +4291,26 @@ end
 send(msg.chat_id_, msg.id_,"◐︙ تم حفظ الرد بنجاح")
 return false  
 end  
+end
+if text == 'كت تويت' or text == 'كت' or text == 'تويت' then
+local list = database:smembers(bot_id..'gamebot:List:Manager')
+quschen = list[math.random(#list)]
+send(msg.chat_id_, msg.id_,quschen)
+end
+if text == "اضف سوال" or text == 'اضف سؤال' or text == 'اضف كت تويت' or text == 'اضف كت' and DevTuBak(msg) then
+database:set(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return send(msg.chat_id_, msg.id_,"ارسل السؤال الان ")
+end
+if text == "حذف الاسئله" or text == 'حذف كت تويت' and DevTuBak(msg) then
+database:del(bot_id.."gamebot:List:Manager")
+return send(msg.chat_id_, msg.id_,"تم حذف الاسئله")
+end
+if text and text:match("^(.*)$") then
+if database:get(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+send(msg.chat_id_, msg.id_, '\nتم حفظ السؤال بنجاح')
+database:set(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
+database:sadd(bot_id.."gamebot:List:Manager", text)
+return false end
 end
 if text == "اضف رد" and Owner(msg) then
 send(msg.chat_id_, msg.id_,"◐︙ ارسل الكلمه التي تريد اضافتها")
@@ -4949,8 +4969,8 @@ database:set(bot_id.."TuBak:Left:Bot"..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_, "◐︙ تم تعطيل مغادرة البوت") 
 return false 
 end
-if text == (database:get(bot_id.."TuBak:Name:Bot") or "محمد") then
-Namebot = (database:get(bot_id.."TuBak:Name:Bot") or "محمد")
+if text == (database:get(bot_id.."TuBak:Name:Bot") or "توباك") then
+Namebot = (database:get(bot_id.."TuBak:Name:Bot") or "توباك")
 local namebot = {
 "عمري فداك "..Namebot.. " كول حب ",
 "كول حبيبي ؟ اني "..Namebot,
@@ -4969,7 +4989,7 @@ return false
 end
 
 if text == "بوت" then
-Namebot = (database:get(bot_id.."TuBak:Name:Bot") or "محمد")
+Namebot = (database:get(bot_id.."TuBak:Name:Bot") or "توباك")
 send(msg.chat_id_, msg.id_,"اسمي القميل ["..Namebot.."] ") 
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" or text == "حذف اسم البوت" then 
@@ -6117,7 +6137,7 @@ tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result
 if result.phone_number_  then
 MyNumber = "رقمك ↫ +"..result.phone_number_
 else
-MyNumber = "تم وضع رقمك لجهات اتصالك فقط"
+MyNumber = "قم بوضع رقمك للجميع لكي اجلب لك الرقم"
 end
 send(msg.chat_id_, msg.id_,MyNumber)
 end,nil)
@@ -6140,7 +6160,7 @@ if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
-local TextS = "\n◐︙ اهلا بك في متجر ملفات محمد\n◐︙ يوجد في المتجر ملف الردود\n◐︙ يتم ادراج الملفات في التحديثات القادمه \n — — — — — — — — — \n"
+local TextS = "\n◐︙ اهلا بك في متجر ملفات توباك\n◐︙ يوجد في المتجر ملف الردود\n◐︙ يتم ادراج الملفات في التحديثات القادمه \n — — — — — — — — — \n"
 local TextE = "\n — — — — — — — — — \n◐︙ تدل علامة (✔) الملف مفعل\n".."◐︙ تدل علامة (✖) الملف معطل\n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
@@ -6631,23 +6651,32 @@ send(msg.chat_id_, msg.id_,"\n◐︙ تم تفعيل الالعاب")
 end
 if text == 'الالعاب' then  
 Teext = [[
-◐︙ قائمه الالعاب الموجوده
- — — — — — — — — — 
-◐︙ لعبة البات -› بات
-◐︙ لعبة التخمين -› خمن
-◐︙ لعبه الاسرع -› الاسرع
-◐︙ لعبة السمايلات -› سمايلات
-◐︙ لعبة المختلف -› المختلف
-◐︙ لعبة الامثله -› امثله
-◐︙ لعبة العكس -› العكس 
-◐︙ لعبة الحزوره -› حزوره
-◐︙ لعبة المعاني -› معاني
- — — — — — — — — — 
-◐︙ مجوهراتي -› لعرض عدد الارباح
-◐︙ بيع مجوهراتي + العدد -› لستبدال كل مجوهره ب50 رساله
+*• قائمه الالعاب السورس ↑↓ *
+●○━━━━٭×٭━━━━○●
+• لعبة البات -› بات
+• لعبة التخمين -› خمن
+• لعبه الاسرع -› الاسرع
+• لعبة السمايلات -› سمايلات
+• لعبة المختلف -› المختلف
+• لعبة الامثله -› امثله
+• لعبة العكس -› العكس
+• لعبة الحزوره -› حزوره
+• لعبة المعاني -› معاني
+●○━━━━٭×٭━━━━○●
+*• Ch ≠ *[Source TuBak TeAM .](t.me/tubakx)
 ]]
 send(msg.chat_id_, msg.id_,Teext) 
 end
+if text == 'رابط حذف' or text == 'رابط الحذف' or text == 'اريد رابط الحذف' or  text == 'شمرلي رابط الحذف' or text == 'اريد رابط حذف' then 
+local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.TuBak ~= true then
+local inline = {{{text="• اضغط هنا للشتراك •",url="https://t.me/TuBakx"}}}
+SendInline(msg.chat_id_,'عذراً عليك الاشتراك في • [. Team TuBak](t.me/TuBaKx) \n↓↑ ليمكنك استخدام البوت بشكل كامل •',nil,inline)
+return false 
+end
+local inline = {{{text="• آضغط هنا للحذف •",url="https://my.telegram.org/auth?to=delete"}}} 
+SendInline(msg.chat_id_,'رابط حذف حساب التلكرام •',nil,inline) return false end
 
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then
 if Addictive(msg) then
@@ -6673,24 +6702,20 @@ end
 end
 if text == 'م1' or text == 'م2' or text == 'ياسورس' or text == 'يا سورس' then
 if Addictive(msg) then
-Text = [[
-اهلا عزيزي
-لايوجد هاكذا اوامر في البوت
-اضغط على الاوامر في الاسفل وتحكم في الازرار
-]]
+Text = [[*
+• اهلا بك عزيزي
+• لايوجد هاكذا اوامر في البوت
+• اضغط على الزر ادنا للتحكم في البوت
+*]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'اوامر التسليه', callback_data="/help"},
+{text = '• آضغط هنا •', callback_data="/help"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-end
-if text == 'رابط الحذف' or text == 'بوت الحذف' then  
-Text = [[◐︙ ︙  @LC6BOT   ]]
-send(msg.chat_id_, msg.id_,Text)
 end
 if text == 'الاوامر' and Constructor(msg) then     
 if not Addictive(msg) then
@@ -6698,15 +6723,15 @@ send(msg.chat_id_, msg.id_,'• عذرا الاوامر هذا لا تخصك ')
 return false
 end
 local Text =[[
-*ʜɪ ɴɪɢɢᴀ
-●○━━━━━𝘕𝘎━━━━━○●
+*• قائمة آوامر السورس*
+●○━━━━━٭×٭━━━━━○●
 •  ① > لعرض اوامر الحمايه
 •  ② > لعرض اوامر الخدميه
 •  ③ > لعرض اوامر المدراء
 •  ④ > لعرض اوامر المنشئين
 •  ⑤ > لعرض اوامر المطورين
-●○━━━━━𝘕𝘎━━━━━○●*
-𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/u5uuuu) •
+●○━━━━━٭×٭━━━━━○●
+*• Ch ≠* [Source TuBak TeAM .](t.me/tubakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -6718,6 +6743,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
+
 end ---- Chat_Type = 'GroupBot' 
 end ---- Chat_Type = 'GroupBot' 
 
@@ -6867,35 +6893,141 @@ end,nil)
 end,nil) 
 end,nil)
 end
-
-if Chat_Type == 'UserBot' then
-if text == '/start' then  
+if text == 'قسم الاشتراك الاجباري •' then  
 if DevTuBak(msg) then
-local Teeeext =[[
-مرحبا بك اوامر المطور 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'تعطيل التواصل', callback_data="twtq"},{text = 'تفعيل التواصل', callback_data="/tw2"}},
+local Text = '*• أهلا بك في قسم الاشتراك الاجباري *'
+local keyboard = {
+{'تعطيل الاشتراك الاجباري •'},
+{'تغير الاشتراك •','حذف رساله الاشتراك •'},
+{'تفعيل الاشتراك الاجباري •'},
+{'الاشتراك الاجباري •'},
+{'تعين قناة الاشتراك •','- تغير رساله الاشتراك ℘ .'},
+{'رجوع •'},
 }
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Teeeext).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-else 
+send_inline_key(msg.chat_id_,Text,keyboard)
+return false  
+end 
+end
+if text == 'قسم اذاعة البوت •' then  
+if DevTuBak(msg) then
+local Text = '*• أهلا بك في قسم الاذاعة للبوت *'
+local keyboard = {
+{'تفعيل الاذاعه •','تعطيل الاذاعه •'},
+{'اذاعه خاص •','اذاعه •'},
+{'اذاعه بالتوجيه •','اذاعه بالتوجيه خاص •'},
+{'رجوع •'},
+}
+send_inline_key(msg.chat_id_,Text,keyboard)
+return false  
+end 
+end
+if Chat_Type == 'UserBot' then
+if text == '/start' or text =='رجوع •' then  
+if DevTuBak(msg) then
+local Text = '*• مرحبا بك في اوامر المطور الاساسي *'
+local keyboard = {
+{'الاحصائيات •','تغيير المطور الاساسي •'},
+{'تفعيل التواصل •','تعطيل التواصل •'},
+{'تنظيف الكروبات •','تنظيف المشتركين •'},
+{'تفعيل البوت الخدمي •','تعطيل البوت الخدمي •'},
+{'المطورين •','مسح قائمه العام •','مسح المطورين •'},
+{'قسم اذاعة البوت •','قسم الاشتراك الاجباري •'},
+{'اضف كت تويت •','حذف كت تويت •'},
+{'تفعيل النسخه التلقائيه •','تعطيل النسخه التلقائيه •'},
+{'تفعيل المغادره •','تعطيل المغادره •'},
+{'حذف كليشه ستارت •','ضع كليشه ستارت •'},
+{'تحديث السورس •','تحديث الملفات •'},
+{'قائمه العام •'},
+{'جلب نسخه احتياطيه •'},
+{'• الغاء •'}
+}
+send_inline_key(msg.chat_id_,Text,keyboard)
+else
 if not database:get(bot_id..'TuBak:Start:Time'..msg.sender_user_id_) then
 local start = database:get(bot_id.."Start:Bot")  
 if start then 
 Test = start
 else
-tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-Test = '⌔︙مرحبا انا بوت حماية كروبات\n⌔︙وضيفتي حماية المجموعات من السبام والتفليش والخ...\n⌔︙لتفعيل البوت اضفني الى مجموعاتك قم برفعي مشرف ثم ارسل تفعيل'
-end,nil)
-end 
-send(msg.chat_id_, msg.id_, Test) 
+Text = "◐︙اهلا بك في بوت "..Namebot.." حماية المجموعات\n◐︙يمكن اضافتي الى مجموعتك مشرف وتفعيلي\n◐︙معرف المطور : "..UserName.." \n\n◐︙للعب ارسل كلمة  : /play \n●○━━━━٭×٭━━━━○●"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- TuBak TeAM . ◐',url="t.me/TubAkx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
 end
 end
 database:setex(bot_id..'TuBak:Start:Time'..msg.sender_user_id_,60,true)
 return false
+end
+if text == '/play' then
+local Text = '*مرحبا بك في العاب البوت اختر ما تريد *'
+local keyboard = {
+{'نسبه الخيانه','نسبه الزحف'},
+{'نسبه الكره','نسبه رجوله','نسبه الحب'},
+{'نسبه الغباء','كشف الحيوان','كشف الارتباط'},
+{'رموز زخرفة','ارقام مزخرفه'},
+{'• قناة السورس •'},
+}
+send_inline_key(msg.chat_id_,Text,keyboard)
+return false
+end
+if text == '• قناة السورس •' then
+Text = [[
+*🌐|  Welcome to Source*
+*أهلاً بك في سورس* [TuBak Team 🔽](t.me/TuBakx)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- TuBak TeAM . ◐',url="t.me/TuBakx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+if text == 'رموز زخرفة' then
+Text = [[
+ ۞ ۩ ✟ 『  』۝ Ξ 道 凸 父 个 ¤ 品 〠 ๛ 𖤍 ᶠᶸᶜᵏᵧₒᵤ ࿐ ⍆ ⍅ ⇭ ༒   𖠃 𖠅 𖠆 𖠊 𖡒 𖡗 𖣩 ꧁ ꧂  〰 𖥓 𖥏 𖥎 𖥌 𖥋 𖥊 𖥈 𖥅 𖥃 𖥂 𖥀 𖤼 𖤹 𖤸 𖤷 𖤶 𖤭 𖤫 𖤪 𖤨 𖤧 𖤥 𖤤 𖤣 𖤢 𖤡 𖤟 𖤞 𖤝 𖤜 𖤛 𖤚 𖤘 𖤙 𖤗 𖤕 𖤓 𖤒 𖤐 ဏ ࿘ ࿗ ࿖ ࿕ ࿑ ࿌ ࿋ ࿊ ࿉ ࿈ ࿇ ࿅ ࿄ ࿃ ࿂ ༼ ༽ ༺ ༻ ༗ ༖ ༕ ⏝ ⏜ ⏎ ၄ ߷ ܛ ׀
+𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 𖢹 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 𖣆 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- TuBak TeAM . ◐',url="t.me/TuBakx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+if text == 'ارقام مزخرفه' then
+Text = [[
+*₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₀
+𝟏 𝟐 𝟑 𝟒 𝟓 𝟔 𝟕 𝟖 𝟗 𝟎
+𝟭 𝟮 𝟯 𝟰 𝟱 𝟲 𝟳 𝟴 𝟵 𝟬
+●○━━━━٭×٭━━━━○●
+①②③④⑤⑥⑦⑧⑨⓪
+①②③④⑤❻❼❽❾⓿
+⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
+●○━━━━٭×٭━━━━○●
+ 𝟶 𝟷 𝟸 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
+ ? 𝟙  𝟚  𝟛  𝟜  𝟝  𝟞  𝟟  𝟠 𝟡
+ 𝟬 𝟭  𝟮  𝟯  𝟰  𝟱   𝟲  𝟳  𝟴  𝟵  
+ 𝟎  𝟏  𝟐  𝟑  𝟒   𝟓   𝟔  𝟕   𝟖   𝟗
+０ １ ２ ３ ４ ５ ６ ７８９
+●○━━━━٭×٭━━━━○●
+*]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- TuBak TeAM . ◐',url="t.me/TuBakx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text and text:match("^/start ph(.*)$") then
@@ -6910,24 +7042,24 @@ send_inline_Media(msg.chat_id_,"sendPhoto","photo",v,inline)
 end
 end
 if #list == 0 then
-send(msg.chat_id_, msg.id_,"≼≽ لا يوجد صور ممنوعه"  )  
+send(msg.chat_id_, msg.id_,"◐︙ لا يوجد صور ممنوعه"  )  
 end
 Zs = {
 {{text = '- اضغط هنا .',callback_data="delallph"..Sf}},
 }
-send_inlin_key(msg.chat_id_,"≼≽ هل تريد اللغاء منع كل الصور؟",Zs,msg.id_)
+send_inlin_key(msg.chat_id_,"◐︙ هل تريد اللغاء منع كل الصور؟",Zs,msg.id_)
 end  
 if text and text:match("^/start msg(.*)$") then
 sl = text:match("^/start msg(.*)$")
 local list = database:smembers(bot_id.."TuBak:List:Filter:text"..sl)
-t = "\n≼≽ قائمة الكلمات الممنوعه \n — — — — — — — — — \n"
+t = "\n◐︙ قائمة الكلمات الممنوعه \n — — — — — — — — — \n"
 for k,v in pairs(list) do
 if v then
 t = t..""..k.."- ["..v.."]\n"
 end
 end
 if #list == 0 then
-t = "≼≽ لا يوجد كلمات ممنوعه"  
+t = "◐︙ لا يوجد كلمات ممنوعه"  
 end
 send(msg.chat_id_, msg.id_,t)  
 end  
@@ -6943,10 +7075,10 @@ send_inline_Media(msg.chat_id_,"sendanimation","animation",v,inline)
 end
 end
 if #list == 0 then
-t = "≼≽ لا يوجد متحركات ممنوعه"  
+t = "◐︙ لا يوجد متحركات ممنوعه"  
 send(msg.chat_id_, msg.id_,t)  
 end
-ZsText = "≼≽ هل تريد اللغاء منع كل المتحركات؟"
+ZsText = "◐︙ هل تريد اللغاء منع كل المتحركات؟"
 Zs = {
 {{text = '- اضغط هنا .',callback_data="delallanimation"..Sf}},
 }
@@ -6964,24 +7096,24 @@ send_inline_Media(msg.chat_id_,"sendSticker","sticker",v,inline)
 end
 end
 if #list == 0 then
-t = "≼≽ لا يوجد ملصقات ممنوعه"  
+t = "◐︙ لا يوجد ملصقات ممنوعه"  
 send(msg.chat_id_, msg.id_,t)  
 end
-ZsText = "≼≽ هل تريد اللغاء منع كل  الملصقات؟"
+ZsText = "◐︙ هل تريد اللغاء منع كل  الملصقات؟"
 Zs = {
 {{text = '- اضغط هنا .',callback_data="delallSticker"..Sf}},
 }
 send_inlin_key(msg.chat_id_,ZsText,Zs,msg.id_)
 end
 if not DevTuBak(msg) and not database:sismember(bot_id..'BaN:In:User',msg.sender_user_id_) and not database:get(bot_id..'Texting:In:Bv') and not database:get(bot_id.."TuBak:Filter"..msg.sender_user_id_) then
-send(msg.sender_user_id_,msg.id_,'≼≽ تمت ارسال رسالتك الى المطور')    
+send(msg.sender_user_id_,msg.id_,'◐︙ تمت ارسال رسالتك الى المطور')    
 tdcli_function({ID ="GetChat",chat_id_=Id_Sudo},function(arg,chat)  
 tdcli_function({ID ="GetChat",chat_id_=msg.sender_user_id_},function(arg,chat)  
 tdcli_function({ID="ForwardMessages",chat_id_=Id_Sudo,from_chat_id_= msg.sender_user_id_,message_ids_={[0]=msg.id_},disable_notification_=1,from_background_=1},function(arg,data) 
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(arg,ta) 
 if data and data.messages_ and data.messages_[0] ~= false and data.ID ~= "Error" then
 if data and data.messages_ and data.messages_[0].content_.sticker_ then
-sendText(Id_Sudo,'≼≽ تم ارسال الملصق من ~ ['..string.sub(ta.first_name_,0, 40)..'](tg://user?id='..ta.id_..')',0,'md') 
+sendText(Id_Sudo,'◐︙ تم ارسال الملصق من ~ ['..string.sub(ta.first_name_,0, 40)..'](tg://user?id='..ta.id_..')',0,'md') 
 return false
 end;end;end,nil);end,nil);end,nil);end,nil);end
 if DevTuBak(msg) and msg.reply_to_message_id_ ~= 0  then    
@@ -6991,46 +7123,79 @@ id_user = result.forward_info_.sender_user_id_
 end     
 tdcli_function ({ID = "GetUser",user_id_ = id_user},function(arg,data) 
 if text == 'حظر' then
-sendText(Id_Sudo,'≼≽ لشخص -› ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\n≼≽ تم حظره من التواصل ',msg.id_/2097152/0.5,'md')
+sendText(Id_Sudo,'◐︙ لشخص -› ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\n◐︙ تم حظره من التواصل ',msg.id_/2097152/0.5,'md')
 database:sadd(bot_id..'BaN:In:User',data.id_)  
 return false  
 end 
 if text =='الغاء الحظر' then
-sendText(Id_Sudo,'≼≽ الشخص -› ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\n≼≽ تم الغاء حظره من التواصل ',msg.id_/2097152/0.5,'md')
+sendText(Id_Sudo,'◐︙ الشخص -› ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\n◐︙ تم الغاء حظره من التواصل ',msg.id_/2097152/0.5,'md')
 database:srem(bot_id..'BaN:In:User',data.id_)  
 return false  
 end 
 tdcli_function({ID='GetChat',chat_id_ = id_user},function(arg,dataq)
 tdcli_function ({ ID = "SendChatAction",chat_id_ = id_user, action_ = {  ID = "SendMessageTypingAction", progress_ = 100} },function(arg,ta) 
 if ta.code_ == 400 or ta.code_ == 5 then
-send(msg.chat_id_, msg.id_,'\n≼≽ فشل ارسال رسالتك لان العضو قام بحظر البوت') 
+send(msg.chat_id_, msg.id_,'\n◐︙ فشل ارسال رسالتك لان العضو قام بحظر البوت') 
 return false  
 end 
 if text then    
 send(id_user,msg.id_,text)    
-Text = '≼≽ تمت ارسال الرساله اليه .. '
+Text = '◐︙ تمت ارسال الرساله اليه .. '
 elseif msg.content_.ID == 'MessageSticker' then    
 sendSticker(id_user, msg.id_, msg.content_.sticker_.sticker_.persistent_id_)   
-Text = '≼≽ تمت ارسال الملصق اليه .. '
+Text = '◐︙ تمت ارسال الملصق اليه .. '
 elseif msg.content_.ID == 'MessagePhoto' then    
 sendPhoto(id_user, msg.id_,msg.content_.photo_.sizes_[0].photo_.persistent_id_,(msg.content_.caption_ or ''))    
-Text = '≼≽ تمت ارسال الصوره اليه .. '
+Text = '◐︙ تمت ارسال الصوره اليه .. '
 elseif msg.content_.ID == 'MessageAnimation' then    
 sendDocument(id_user, msg.id_, msg.content_.animation_.animation_.persistent_id_)    
-Text = '≼≽ تمت ارسال المتحركه اليه .. '
+Text = '◐︙ تمت ارسال المتحركه اليه .. '
 elseif msg.content_.ID == 'MessageVoice' then    
 sendVoice(id_user, msg.id_, msg.content_.voice_.voice_.persistent_id_)    
-Text = '≼≽ تمت ارسال البصمه اليه .. '
+Text = '◐︙ تمت ارسال البصمه اليه .. '
 end     
-sendText(Id_Sudo,Text..'\n'..'≼≽ ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
+sendText(Id_Sudo,Text..'\n'..'◐︙ ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
 end,nil);end,nil);end,nil);end,nil);end 
 if DevTuBak(msg) then
-if text =='الاحصائيات ℘' then
+if text == 'تفعيل التواصل •' then  
+database:del(bot_id..'Texting:In:Bv') 
+send(msg.chat_id_, msg.id_,'◐︙ تم تفعيل التواصل ') 
+end
+if text == 'تعطيل التواصل •' then  
+database:set(bot_id..'Texting:In:Bv',true) 
+send(msg.chat_id_, msg.id_,'◐︙ تم تعطيل التواصل ') 
+end
+if text == 'تفعيل النسخه التلقائيه •' then
+database:del(bot_id.."AutoFile")
+send(msg.chat_id_, msg.id_,"✫: تم تفعيل النسخه الاحتياطيه التلقائيه .") 
+return false
+end
+if text == "تعطيل النسخه التلقائيه •" then  
+database:set(bot_id.."AutoFile",true) 
+send(msg.chat_id_, msg.id_,"✫: تم تعطيل النسخه الاحتياطيه التلقائيه .") 
+return false  
+end
+if text == "اضف كت تويت •" then
+database:set(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return send(msg.chat_id_, msg.id_,"ارسل السؤال الان ")
+end
+if text == "حذف كت تويت •" then
+database:del(bot_id.."gamebot:List:Manager")
+return send(msg.chat_id_, msg.id_,"تم حذف الاسئله")
+end
+if text and text:match("^(.*)$") then
+if database:get(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+send(msg.chat_id_, msg.id_, '\nتم حفظ السؤال بنجاح')
+database:set(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
+database:sadd(bot_id.."gamebot:List:Manager", text)
+return false end
+end
+if text =='الاحصائيات •' then
 local Groups = database:scard(bot_id..'TuBak:Chek:Groups')  
 local Users = database:scard(bot_id..'TuBak:UsersBot')  
-send(msg.chat_id_, msg.id_,'≼≽ احصائيات البوت \n\n≼≽ عدد المجموعات *~ '..Groups..'\n≼≽ عدد المشتركين ~ '..Users..'*')
+send(msg.chat_id_, msg.id_,'◐︙ احصائيات البوت \n\n◐︙ عدد المجموعات *~ '..Groups..'\n◐︙ عدد المشتركين ~ '..Users..'*')
 end
-if text == "تنظيف المشتركين ℘" then
+if text == "تنظيف المشتركين •" then
 local pv = database:smembers(bot_id..'TuBak:UsersBot')  
 local sendok = 0
 for i = 1, #pv do
@@ -7045,10 +7210,10 @@ sendok = sendok + 1
 end
 if #pv == i then 
 if sendok == 0 then
-send(msg.chat_id_, msg.id_,'≼≽ لا يوجد مشتركين وهميين')   
+send(msg.chat_id_, msg.id_,'◐︙ لا يوجد مشتركين وهميين')   
 else
 local ok = #pv - sendok
-send(msg.chat_id_, msg.id_,'*≼≽ عدد المشتركين الان ~ '..#pv..'\n≼≽ تم العثور على ~ '..sendok..' مشترك قام بحظر البوت\n≼≽ اصبح عدد المشتركين الان ~ '..ok..' مشترك *')   
+send(msg.chat_id_, msg.id_,'*◐︙ عدد المشتركين الان ~ '..#pv..'\n◐︙ تم العثور على ~ '..sendok..' مشترك قام بحظر البوت\n◐︙ اصبح عدد المشتركين الان ~ '..ok..' مشترك *')   
 end
 end
 end,nil)
@@ -7056,7 +7221,7 @@ end,nil)
 end
 return false
 end
-if text == "تنظيف الكروبات ℘" then
+if text == "تنظيف الكروبات •" then
 local group = database:smembers(bot_id..'TuBak:Chek:Groups')  
 local w = 0
 local q = 0
@@ -7084,38 +7249,38 @@ w = w + 1
 end
 if #group == i then 
 if (w + q) == 0 then
-send(msg.chat_id_, msg.id_,'≼≽ لا توجد مجموعات وهميه ')   
+send(msg.chat_id_, msg.id_,'◐︙ لا توجد مجموعات وهميه ')   
 else
 local taha = (w + q)
 local sendok = #group - taha
 if q == 0 then
 taha = ''
 else
-taha = '\n≼≽ تم ازالة ~ '..q..' مجموعات من البوت'
+taha = '\n◐︙ تم ازالة ~ '..q..' مجموعات من البوت'
 end
 if w == 0 then
 storm = ''
 else
-storm = '\n≼≽ تم ازالة ~'..w..' مجموعه لان البوت عضو'
+storm = '\n◐︙ تم ازالة ~'..w..' مجموعه لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'*≼≽ عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n≼≽ اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*◐︙ عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n◐︙ اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
 end
 end
 end,nil)
 end
 return false
 end
-if text =='تغيير المطور الاساسي ℘' and VIP_DeV(msg) then
-send(msg.chat_id_, msg.id_,'≼≽ ارسل ايدي المطور الاساسي الجديد')
+if text =='تغيير المطور الاساسي •' and VIP_DeV(msg) then
+send(msg.chat_id_, msg.id_,'◐︙ارسل ايدي المطور الاساسي الجديد')
 database:set(bot_id..'LACKBOTSS:Ed:DevBots',true) 
 end
-if text =='تغيير المطور الاساسي ℘' and not VIP_DeV(msg) then
-send(msg.chat_id_, msg.id_,'≼≽ تسرسح')
+if text =='تغيير المطور الاساسي •' and not VIP_DeV(msg) then
+send(msg.chat_id_, msg.id_,'◐︙تسرسح منا')
 end
 if database:get(bot_id.."LACKBOTSS:Ed:DevBots") then
 if text and text:match("^(%d+)$") then
 local IdDe = text:match("^(%d+)$")
-send(msg.chat_id_,msg.id_, "≼≽ تم تحفظ المعلومات اضغط ( تحديث الملفات ℘ ) للتنفيذ")
+send(msg.chat_id_,msg.id_, "◐︙تم تحفظ المعلومات اضغط ( تحديث الملفات • ) للتنفيذ")
 local A = io.open("sudo.lua", 'w')
 A:write([[
 s = "VlVlVI"
@@ -7130,139 +7295,139 @@ A:close()
 database:del(bot_id.."LACKBOTSS:Ed:DevBots")
 end
 end
-if text == 'تفعيل البوت الخدمي ℘' then
+if text == 'تفعيل البوت الخدمي •' then
 database:del(bot_id..'TuBak:Free:Add:Bots') 
-send(msg.chat_id_, msg.id_,'\n≼≽ تم تفعيل البوت الخدمي ') 
+send(msg.chat_id_, msg.id_,'\n◐︙ تم تفعيل البوت الخدمي ') 
 end
-if text == 'تعطيل البوت الخدمي ℘' then
+if text == 'تعطيل البوت الخدمي •' then
 database:set(bot_id..'TuBak:Free:Add:Bots',true) 
-send(msg.chat_id_, msg.id_,'\n≼≽ تم تعطيل البوت الخدمي') 
+send(msg.chat_id_, msg.id_,'\n◐︙ تم تعطيل البوت الخدمي') 
 end
-if text=="اذاعه خاص ℘" and msg.reply_to_message_id_ == 0 then
+if text=="اذاعه خاص •" and msg.reply_to_message_id_ == 0 then
 if database:get(bot_id.."TuBak:Status:Bc") and not DevTuBak(msg) then 
-send(msg.chat_id_, msg.id_,"≼≽ الاذاعه معطله من قبل المطور الاساسي")
+send(msg.chat_id_, msg.id_,"◐︙ الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
 database:setex(bot_id.."TuBak:TuBak:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"≼≽ ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n≼≽ للخروج ارسل الغاء ") 
+send(msg.chat_id_, msg.id_,"◐︙ ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n◐︙ للخروج ارسل الغاء ") 
 return false
 end 
 
-if text=="اذاعه ℘" and msg.reply_to_message_id_ == 0 then
+if text=="اذاعه •" and msg.reply_to_message_id_ == 0 then
 if database:get(bot_id.."TuBak:Status:Bc") and not DevTuBak(msg) then 
-send(msg.chat_id_, msg.id_,"≼≽ الاذاعه معطله من قبل المطور الاساسي")
+send(msg.chat_id_, msg.id_,"◐︙ الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
 database:setex(bot_id.."TuBak:TuBak:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"≼≽ ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n≼≽ للخروج ارسل الغاء ") 
+send(msg.chat_id_, msg.id_,"◐︙ ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n◐︙ للخروج ارسل الغاء ") 
 return false
 end  
-if text=="اذاعه بالتوجيه ℘" and msg.reply_to_message_id_ == 0  then
+if text=="اذاعه بالتوجيه •" and msg.reply_to_message_id_ == 0  then
 if database:get(bot_id.."TuBak:Status:Bc") and not DevTuBak(msg) then 
-send(msg.chat_id_, msg.id_,"≼≽ الاذاعه معطله من قبل المطور الاساسي")
+send(msg.chat_id_, msg.id_,"◐︙ الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
 database:setex(bot_id.."TuBak:TuBak:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"≼≽ ارسل لي التوجيه الان") 
+send(msg.chat_id_, msg.id_,"◐︙ ارسل لي التوجيه الان") 
 return false
 end 
-if text=="اذاعه بالتوجيه خاص ℘" and msg.reply_to_message_id_ == 0  then
+if text=="اذاعه بالتوجيه خاص •" and msg.reply_to_message_id_ == 0  then
 if database:get(bot_id.."TuBak:Status:Bc") and not DevTuBak(msg) then 
-send(msg.chat_id_, msg.id_,"≼≽ الاذاعه معطله من قبل المطور الاساسي")
+send(msg.chat_id_, msg.id_,"◐︙ الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
 database:setex(bot_id.."TuBak:TuBak:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"≼≽ ارسل لي التوجيه الان") 
+send(msg.chat_id_, msg.id_,"◐︙ ارسل لي التوجيه الان") 
 return false
 end 
-if text == "تفعيل الاذاعه ℘" then
+if text == "تفعيل الاذاعه •" then
 database:del(bot_id.."TuBak:Status:Bc") 
-send(msg.chat_id_, msg.id_,"\n≼≽ تم تفعيل الاذاعه " ) 
+send(msg.chat_id_, msg.id_,"\n◐︙ تم تفعيل الاذاعه " ) 
 return false
 end 
-if text == "تعطيل الاذاعه ℘" then
+if text == "تعطيل الاذاعه •" then
 database:set(bot_id.."TuBak:Status:Bc",true) 
-send(msg.chat_id_, msg.id_,"\n≼≽ تم تعطيل الاذاعه") 
+send(msg.chat_id_, msg.id_,"\n◐︙ تم تعطيل الاذاعه") 
 return false
 end 
-if text == "تفعيل المغادره ℘" then
+if text == "تفعيل المغادره •" then
 database:del(bot_id.."TuBak:Left:Bot"..msg.chat_id_)  
-send(msg.chat_id_, msg.id_,"≼≽ تم تفعيل مغادرة البوت") 
+send(msg.chat_id_, msg.id_,"◐︙ تم تفعيل مغادرة البوت") 
 return false 
 end
-if text == "تعطيل المغادره ℘" then
+if text == "تعطيل المغادره •" then
 database:set(bot_id.."TuBak:Left:Bot"..msg.chat_id_,true)   
-send(msg.chat_id_, msg.id_, "≼≽ تم تعطيل مغادرة البوت") 
+send(msg.chat_id_, msg.id_, "◐︙ تم تعطيل مغادرة البوت") 
 return false 
 end
 if text and database:get(bot_id..'Start:Bots') then
-if text == 'الغاء ℘' then   
-send(msg.chat_id_, msg.id_,"≼≽ تم الغاء حفظ كليشه ستارت") 
+if text == '• الغاء •' then   
+send(msg.chat_id_, msg.id_,"◐︙ تم الغاء حفظ كليشه ستارت") 
 database:del(bot_id..'Start:Bots') 
 return false
 end
 database:set(bot_id.."Start:Bot",text)  
-send(msg.chat_id_, msg.id_,'≼≽ تم حفظ كليشه ستارت') 
+send(msg.chat_id_, msg.id_,'◐︙ تم حفظ كليشه ستارت') 
 database:del(bot_id..'Start:Bots') 
 return false
 end
-if text == 'ضع كليشه ستارت ℘' then
+if text == 'ضع كليشه ستارت •' then
 database:set(bot_id..'Start:Bots',true) 
-send(msg.chat_id_, msg.id_,'≼≽ ارسل لي الكليشه الان') 
+send(msg.chat_id_, msg.id_,'◐︙ ارسل لي الكليشه الان') 
 return false
 end
-if text == 'حذف كليشه ستارت ℘' then
+if text == 'حذف كليشه ستارت •' then
 database:del(bot_id..'Start:Bot') 
-send(msg.chat_id_, msg.id_,'≼≽ تم حذف كليشه ستارت') 
+send(msg.chat_id_, msg.id_,'◐︙ تم حذف كليشه ستارت') 
 end
-if text and text:match("^- تغير الاشتراك ℘ .$") and DevTuBak(msg) then  
+if text and text:match("^تغير الاشتراك •$") and DevTuBak(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '≼≽ حسنآ ارسل لي معرف القناة')
+send(msg.chat_id_, msg.id_, '◐︙ حسنآ ارسل لي معرف القناة')
 return false  
 end
 if text and text:match("^- تغير رساله الاشتراك ℘ .$") and DevTuBak(msg) then  
 database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '≼≽ حسنآ ارسل لي النص الذي تريده')
+send(msg.chat_id_, msg.id_, '◐︙ حسنآ ارسل لي النص الذي تريده')
 return false  
 end
-if text == "حذف رساله الاشتراك ℘ ." and DevTuBak(msg) then  
+if text == "حذف رساله الاشتراك •" and DevTuBak(msg) then  
 database:del(bot_id..'text:ch:user')
-send(msg.chat_id_, msg.id_, "≼≽ تم مسح رساله الاشتراك ")
+send(msg.chat_id_, msg.id_, "◐︙ تم مسح رساله الاشتراك ")
 return false  
 end
-if text and text:match("^- تعين قناة الاشتراك ℘ .$") and DevTuBak(msg) then  
+if text and text:match("^تعين قناة الاشتراك •$") and DevTuBak(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '≼≽ حسنآ ارسل لي معرف القناة')
+send(msg.chat_id_, msg.id_, '◐︙ حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text == "- تفعيل الاشتراك الاجباري ℘ ." and DevTuBak(msg) then  
+if text == "تفعيل الاشتراك الاجباري •" and DevTuBak(msg) then  
 if database:get(bot_id..'add:ch:id') then
 local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_,"≼≽ الاشتراك الاجباري مفعل \n≼≽ على القناة -› ["..addchusername.."]")
+send(msg.chat_id_, msg.id_,"◐︙ الاشتراك الاجباري مفعل \n◐︙ على القناة -› ["..addchusername.."]")
 else
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_,"≼≽ اهلا عزيزي المطور \n≼≽ ارسل الان معرف قناتك")
+send(msg.chat_id_, msg.id_,"◐︙ اهلا عزيزي المطور \n◐︙ ارسل الان معرف قناتك")
 end
 return false  
 end
-if text == "- تعطيل الاشتراك الاجباري ℘ ." and DevTuBak(msg) then  
+if text == "تعطيل الاشتراك الاجباري •" and DevTuBak(msg) then  
 database:del(bot_id..'add:ch:id')
 database:del(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, "≼≽ تم تعطيل الاشتراك الاجباري ")
+send(msg.chat_id_, msg.id_, "◐︙ تم تعطيل الاشتراك الاجباري ")
 return false  
 end
-if text == "- الاشتراك الاجباري ℘ ." and DevTuBak(msg) then  
+if text == "الاشتراك الاجباري •" and DevTuBak(msg) then  
 if database:get(bot_id..'add:ch:username') then
 local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, "≼≽ تم تفعيل الاشتراك الاجباري \n≼≽ على القناة -› ["..addchusername.."]")
+send(msg.chat_id_, msg.id_, "◐︙ تم تفعيل الاشتراك الاجباري \n◐︙ على القناة -› ["..addchusername.."]")
 else
-send(msg.chat_id_, msg.id_, "≼≽ لا يوجد قناة في الاشتراك الاجباري ")
+send(msg.chat_id_, msg.id_, "◐︙ لا يوجد قناة في الاشتراك الاجباري ")
 end
 return false  
 end
 if database:get(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
-send(msg.chat_id_, msg.id_, "≼≽ تم الغاء الامر ")
+send(msg.chat_id_, msg.id_, "◐︙ تم الغاء الامر ")
 database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
 database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
@@ -7272,21 +7437,21 @@ ID = "SearchPublicChat",
 username_ = username  
 },function(arg,data) 
 if data and data.message_ and data.message_ == "USERNAME_NOT_OCCUPIED" then 
-send(msg.chat_id_, msg.id_, '≼≽ المعرف لا يوجد فيه قناة')
+send(msg.chat_id_, msg.id_, '◐︙ المعرف لا يوجد فيه قناة')
 return false  end
 if data and data.type_ and data.type_.ID and data.type_.ID == 'PrivateChatInfo' then
-send(msg.chat_id_, msg.id_, '≼≽ عذا لا يمكنك وضع معرف حسابات في الاشتراك ')
+send(msg.chat_id_, msg.id_, '◐︙ عذا لا يمكنك وضع معرف حسابات في الاشتراك ')
 return false  end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == true then
-send(msg.chat_id_, msg.id_,'≼≽ عذا لا يمكنك وضع معرف مجموعه بالاشتراك ')
+send(msg.chat_id_, msg.id_,'◐︙ عذا لا يمكنك وضع معرف مجموعه بالاشتراك ')
 return false  end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == false then
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.ID and data.type_.channel_.status_.ID == 'ChatMemberStatusEditor' then
-send(msg.chat_id_, msg.id_,'≼≽ البوت ادمن في القناة \n≼≽ تم تفعيل الاشتراك الاجباري في \n≼≽ ايدي القناة ('..data.id_..')\n≼≽ معرف القناة ([@'..data.type_.channel_.username_..'])')
+send(msg.chat_id_, msg.id_,'◐︙ البوت ادمن في القناة \n◐︙ تم تفعيل الاشتراك الاجباري في \n◐︙ ايدي القناة ('..data.id_..')\n◐︙ معرف القناة ([@'..data.type_.channel_.username_..'])')
 database:set(bot_id..'add:ch:id',data.id_)
 database:set(bot_id..'add:ch:username','@'..data.type_.channel_.username_)
 else
-send(msg.chat_id_, msg.id_,'≼≽ عذرآ البوت ليس ادمن بالقناه ')
+send(msg.chat_id_, msg.id_,'◐︙ عذرآ البوت ليس ادمن بالقناه ')
 end
 return false  
 end
@@ -7294,26 +7459,26 @@ end,nil)
 end
 if database:get(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
-send(msg.chat_id_, msg.id_, "≼≽ تم الغاء الامر ")
+send(msg.chat_id_, msg.id_, "◐︙ تم الغاء الامر ")
 database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
 database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 local texxt = string.match(text, "(.*)") 
 database:set(bot_id..'text:ch:user',texxt)
-send(msg.chat_id_, msg.id_,'≼≽ تم تغيير رسالة الاشتراك ')
+send(msg.chat_id_, msg.id_,'◐︙ تم تغيير رسالة الاشتراك ')
 end
-if text == ("مسح قائمه العام ℘") and DevTuBak(msg) then
+if text == ("مسح قائمه العام •") and DevTuBak(msg) then
 database:del(bot_id.."TuBak:GBan:User")
-send(msg.chat_id_, msg.id_, "\n≼≽ تم مسح قائمه العام")
+send(msg.chat_id_, msg.id_, "\n◐︙ تم مسح قائمه العام")
 return false
 end
-if text == ("مسح المطورين ℘") and DevTuBak(msg) then
+if text == ("مسح المطورين •") and DevTuBak(msg) then
 database:del(bot_id.."TuBak:Sudo:User")
-send(msg.chat_id_, msg.id_, "\n≼≽ تم مسح قائمة المطورين  ")
+send(msg.chat_id_, msg.id_, "\n◐︙ تم مسح قائمة المطورين  ")
 end
-if text == ("قائمه العام ℘") and DevTuBak(msg) then
+if text == ("قائمه العام •") and DevTuBak(msg) then
 local list = database:smembers(bot_id.."TuBak:GBan:User")
-t = "\n≼≽ قائمة المحظورين عام \n — — — — — — — — — \n"
+t = "\n◐︙ قائمة المحظورين عام \n — — — — — — — — — \n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."TuBak:User:Name" .. v)
 if username then
@@ -7323,14 +7488,14 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "≼≽ لا يوجد محظورين عام"
+t = "◐︙ لا يوجد محظورين عام"
 end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("المطورين ℘") and DevTuBak(msg) then
+if text == ("المطورين •") and DevTuBak(msg) then
 local list = database:smembers(bot_id.."TuBak:Sudo:User")
-t = "\n≼≽ قائمة مطورين البوت \n — — — — — — — — — \n"
+t = "\n◐︙ قائمة مطورين البوت \n — — — — — — — — — \n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."TuBak:User:Name" .. v)
 if username then
@@ -7340,11 +7505,11 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "≼≽ لا يوجد مطورين"
+t = "◐︙ لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == 'جلب نسخه احتياطيه ℘' then
+if text == 'جلب نسخه احتياطيه •' then
 local list = database:smembers(bot_id..'TuBak:Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
@@ -7409,10 +7574,85 @@ t = t..'}}'
 local File = io.open('./FileTubak/'..bot_id..'.json', "w")
 File:write(t)
 File:close()
-sendDocument(msg.chat_id_, msg.id_,'./FileTubak/'..bot_id..'.json', '≼≽ عدد مجموعات التي في البوت { '..#list..'}')
+sendDocument(msg.chat_id_, msg.id_,'./FileTubak/'..bot_id..'.json', '◐︙ عدد مجموعات التي في البوت { '..#list..'}')
 end
-if text == "تحديث السورس ℘" then
-send(msg.chat_id_,msg.id_,'≼≽ تم التحديث')
+if text and not database:get(bot_id.."TuBak:AutoFile") then
+Time = database:get(bot_id.."TuBak:AutoFile:Time")
+if Time then 
+if Time ~= os.date("%x") then  
+local list = database:smembers(bot_id..'TuBak:Chek:Groups')  
+local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
+for k,v in pairs(list) do   
+NAME = 'TuBak Chat'
+ASAS = database:smembers(bot_id.."TuBak:Basic:Constructor"..v)
+MNSH = database:smembers(bot_id.."TuBak:Constructor"..v)
+MDER = database:smembers(bot_id.."TuBak:Manager"..v)
+MOD = database:smembers(bot_id.."TuBak:Mod:User"..v)
+link = database:get(bot_id.."TuBak:Link_Group"..v) or ''
+if k == 1 then
+t = t..'"'..v..'":{"TuBak":"'..NAME..'",'
+else
+t = t..',"'..v..'":{"TuBak":"'..NAME..'",'
+end
+if #ASAS ~= 0 then 
+t = t..'"ASAS":['
+for k,v in pairs(ASAS) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MOD ~= 0 then
+t = t..'"MOD":['
+for k,v in pairs(MOD) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MDER ~= 0 then
+t = t..'"MDER":['
+for k,v in pairs(MDER) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MNSH ~= 0 then
+t = t..'"MNSH":['
+for k,v in pairs(MNSH) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+t = t..'"linkgroup":"'..link..'"}' or ''
+end
+t = t..'}}'
+local File = io.open('./FileTubak/'..bot_id..'.json', "w")
+File:write(t)
+File:close()
+sendDocument(msg.chat_id_, msg.id_,'./FileTubak/'..bot_id..'.json', '◐︙ عدد مجموعات التي في البوت { '..#list..'}')
+database:set(bot_id.."TuBak:AutoFile:Time",os.date("%x"))
+end
+else 
+database:set(bot_id.."TuBak:AutoFile:Time",os.date("%x"))
+end
+end
+if text == "تحديث السورس •" then
+send(msg.chat_id_,msg.id_,'◐︙ تم التحديث')
 os.execute('rm -rf TuBak.lua')
 os.execute('rm -rf Run.lua')
 os.execute('rm -rf Code.lua')
@@ -7421,9 +7661,9 @@ os.execute('wget https://raw.githubusercontent.com/Tubaktele/TuBak/master/Run.lu
 dofile('TuBak.lua')  
 return false
 end
-if text == "تحديث الملفات ℘" then
+if text == "تحديث الملفات •" then
 dofile("TuBak.lua")  
-send(msg.chat_id_, msg.id_, "≼≽ تم التحديث")
+send(msg.chat_id_, msg.id_, "◐︙ تم التحديث")
 end
 end
 end --- Chat_Type = 'UserBot' 
@@ -7448,12 +7688,11 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
-*ʜɪ ɴɪɢɢᴀ*
-•اوامر الحمايه
+*• قائمة اوامر الحمايه*
 •قفل + فتح > الامر
-●○━━━━━𝘕𝘎━━━━━○●
+●○━━━━━٭×٭━━━━━○●
 •بالتقيد ، بالطرد ، بالكتم
-●○━━━━━𝘕𝘎━━━━━○●
+●○━━━━━٭×٭━━━━━○●
 • الروابط
 • المعرف
 • التاك
@@ -7481,14 +7720,14 @@ local Teext =[[
 • التكرار
 • الكلايش
 • السيلفي
-●○━━━━━𝘕𝘎━━━━━○●
-𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/NiggA_SoUrcE)•
+●○━━━━━٭×٭━━━━━○●
+*• Ch ≠* [Source TuBak TeAM .](t.me/tubakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '①', callback_data="/help1"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
 {{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
-{{text = 'الاوامر الرئيسيه', callback_data="/help"}},
+{{text = '• رجوع •', callback_data="/help"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -7499,9 +7738,8 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
-*ʜɪ ɴɪɢɢᴀ*
-• اوامر الخدميه
- ●○━━━━𝘕𝘎━━━━○●  
+*• قائمة اوامر الخدميه*
+ ●○━━━━٭×٭━━━━○● 
 • كتم
 • حظر
 • طرد
@@ -7573,14 +7811,14 @@ local Teext =[[
 • تفعيل المسح التلقائي
 • تعطيل المسح التلقائي
  • اضف /مسح صلاحيه
-●○━━━━━𝘕𝘎━━━━━○●
-𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/NiggA_SoUrcE)•
+●○━━━━━٭×٭━━━━━○●
+*• Ch ≠* [Source TuBak TeAM .](t.me/tubakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '①', callback_data="/help1"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
 {{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
-{{text = 'الاوامر الرئيسيه', callback_data="/help"}},
+{{text = '• رجوع •', callback_data="/help"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -7591,9 +7829,8 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
-*ʜɪ ɴɪɢɢᴀ*
-• اوامر المدير
-●○━━━━━𝘕𝘎━━━━━○● 
+*• قائمة اوامر المدير*
+●○━━━━━٭×٭━━━━━○● 
 • الادمنيه
 • اضف رد
 • حذف رد
@@ -7618,14 +7855,14 @@ local Teext =[[
 • تفعيل/تعطيل الايدي بالصوره
 • تفعيل/تعطيل اوامر التحشيش
 • تفعيل/تعطيل الرابط/جلب الرابط
-●○━━━━━𝘕𝘎━━━━━○●
-𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/NiggA_SoUrcE)•
+●○━━━━━٭×٭━━━━━○●
+*• Ch ≠* [Source TuBak TeAM .](t.me/tubakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '①', callback_data="/help1"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
 {{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
-{{text = 'الاوامر الرئيسيه', callback_data="/help"}},
+{{text = '• رجوع •', callback_data="/help"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -7636,9 +7873,8 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
-*ʜɪ ɴɪɢɢᴀ*
-• اوامر المنشئين الاساسين 
-●○━━━━━𝘕𝘎━━━━━○● 
+*• اوامر المنشئين الاساسين*
+●○━━━━━٭×٭━━━━━○● 
 • اوامر المالك ، 
 • المنشئين الاساسين
 • رفع/تنزيل منشئ اساسي
@@ -7660,14 +7896,14 @@ local Teext =[[
 • حذف/مسح الاوامر المضافه
 • اضف رسائل + العدد بالرد
 • اضف نقاط + العدد بالرد
-●○━━━━━𝘕𝘎━━━━━○●
-𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/NiggA_SoUrcE) •
+●○━━━━━٭×٭━━━━━○●
+*• Ch ≠* [Source TuBak TeAM .](t.me/tubakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '①', callback_data="/help1"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
 {{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
-{{text = 'الاوامر الرئيسيه', callback_data="/help"}},
+{{text = '• رجوع •', callback_data="/help"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -7678,9 +7914,8 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
-*ʜɪ ɴɪɢɢᴀ*
-• اوامر المطور الاساسي  
- ●○━━━━𝘕𝘎━━━━○● 
+*• اوامر المطور الاساسي*
+ ●○━━━━٭×٭━━━━○● 
 • غادر
 • اذاعه
 • المتجر
@@ -7720,14 +7955,14 @@ local Teext =[[
 • تفعيل ملف + اسم الملف
 • تعطيل ملف + اسم الملف
 •  تعين عدد الاعضاء + العدد
-●○━━━━━𝘕𝘎━━━━━○● 
-𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/NiggA_SoUrcE)•
+●○━━━━━٭×٭━━━━━○● 
+*• Ch ≠* [Source TuBak TeAM .](t.me/tubakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '①', callback_data="/help1"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
 {{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
-{{text = 'الاوامر الرئيسيه', callback_data="/help"}},
+{{text = '• رجوع •', callback_data="/help"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -7738,9 +7973,8 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
-*ʜɪ ɴɪɢɢᴀ*
-اوامر التسليه 
-●○━━━━𝘕𝘎━━━━○● 
+*• اوامر التسليه*
+●○━━━━٭×٭━━━━○● 
 رفع + تنزيل + الامر
 • اثول
 • جلب
@@ -7751,7 +7985,7 @@ local Teext =[[
 • بكلبي
 • تاج
 • نبي
-●○━━━𝘕𝘎━━━○●
+●○━━━٭×٭━━━○●
 • الاوامر التاليه بالرد 
 • شنو رئيك بهذا
 • شنو رئيك بهاي
@@ -7761,18 +7995,18 @@ local Teext =[[
 • مصه
 • هينه
 • رزله
-●○━━━𝘕𝘎━━━○●
+●○━━━٭×٭━━━○●
 • نسبه الحب
 • نسبه الانوثه
 • نسبه الرجوله
-●○━━━━𝘕𝘎━━━━○●
-𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/NiggA_SoUrcE)•
+●○━━━━٭×٭━━━━○●
+*• Ch ≠* [Source TuBak TeAM .](t.me/tubakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '①', callback_data="/help1"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
 {{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
-{{text = 'الاوامر الرئيسيه', callback_data="/help"}},
+{{text = '• رجوع •', callback_data="/help"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -7783,15 +8017,15 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
-*ʜɪ ɴɪɢɢᴀ
-●○━━━━━𝘕𝘎━━━━━○●
+*• قائمة آوامر السورس*
+●○━━━━━٭×٭━━━━━○●
 •  ① > لعرض اوامر الحمايه
 •  ② > لعرض اوامر الخدميه
 •  ③ > لعرض اوامر المدراء
 •  ④ > لعرض اوامر المنشئين
 •  ⑤ > لعرض اوامر المطورين
-●○━━━━━𝘕𝘎━━━━━○●*
-𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/NiggA_SoUrcE)•
+●○━━━━━٭×٭━━━━━○●
+*• Ch ≠ *[Source TuBak TeAM .](t.me/tubakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -7993,7 +8227,7 @@ if NewCmmd then
 data.message_.content_.text_ = (NewCmmd or data.message_.content_.text_)
 end
 end
-local Name_Bot = (database:get(bot_id.."TuBak:Name:Bot") or "محمد")
+local Name_Bot = (database:get(bot_id.."TuBak:Name:Bot") or "توباك")
 if not database:get(bot_id.."TuBak:Fun_Bots"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
@@ -8014,6 +8248,196 @@ end
 end
 if text and text:match('^'..Name_Bot..' ') then
 data.message_.content_.text_ = data.message_.content_.text_:gsub('^'..Name_Bot..' ','')
+end
+if text == "نسبه الحب" or text == "نسبه حب" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:lov'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_,"sendlove")
+Text = '◐︙ ارسل اسمك واسم الشخص : \n◐︙ كمثال : *احمد و توباك*'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه الحب" and database:get(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_) == "sendlove" then
+num = {"💔 10","💔😐 20","💔☹️ 30","💔🙁 35","💕😊 75","💔 34","💕😔 66","💛😍 82","☹️ 23","💔 19","💕☹️ 55","😂☹️ 8","🥰 63","😒 32","27","89","99","98","3","80","49","100","6","0",};
+sendnum = num[math.random(#num)]
+local Text = '◐︙ اليك النتائج الخـاصة :\n\n◐︙ نسبة الحب بيـن : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '-›› '..sendnum..'%',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+database:del(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_)
+end
+if text == "نسبه الكره" or text == "نسبه كره" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:krh'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_,"sendkrhe")
+Text = '◐︙ ارسل اسمك واسم الشخص : \n◐︙ كمثال : *احمد و توباك*'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه الكره" and database:get(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_) == "sendkrhe" then
+num = {"10","20","30","35","75","34","66","82","23","19","55","8","63","32","27","89","99","98","3","80","8","100","6","0",};
+sendnum = num[math.random(#num)]
+local Text = '◐︙ اليك النتائج الخـاصة :\n\n◐︙ نسبه الكرة : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '-›› '..sendnum..'%',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+database:del(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_)
+end
+if text == "نسبه رجوله" or text == "نسبه الرجوله" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:rjo'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_,"sendrjoe")
+Text = '◐︙ارسل اسم الشخص : \n◐︙ كمثال : *احـمد*'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه رجوله" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
+numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
+sendnuj = numj[math.random(#numj)]
+local Text = '◐︙ اليك النتائج الخـاصة :\n\n◐︙ نسبة الرجوله لـ : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '-›› '..sendnuj..'%',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+database:del(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_)
+end
+if text == "نسبه الانوثه" or text == "نسبه انوثه" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:ano'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_,"sendanoe")
+Text = '◐︙ ارسل اسم الشخص : \n◐︙ كمثال : *احـمد*'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه الانوثه" and database:get(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_) == "sendanoe" then
+numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
+sendnuj = numj[math.random(#numj)]
+local Text = '◐︙ اليك النتائج الخـاصة :\n\n◐︙ نسبه الانوثة لـ : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '-›› '..sendnuj..'%',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+database:del(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_)
+end
+if text == "كشف الحيوان" or text == "نسبه انوثه" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:ono'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_,"sendonoe")
+Text = '◐︙ ارسل اسم الشخص : \n◐︙ كمثال : *احـمد*'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="كشف الحيوان" and database:get(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_) == "sendonoe" then
+numj = {"قنفذ 🦝","صخل 🐐","جلب 🦮","بقرة 🐄","خنزير 🐖","قرد 🦧","فأر 🐁","تمساح 🐊","ذبانه 🪰","حصان 🐴",};
+sendnmj = numj[math.random(#numj)]
+local Text = '◐︙ اليك النتائج الخـاصة :\n\n◐︙ نوع الحيوان لـ : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = ''..sendnmj..' ‹‹-',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+database:del(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_)
+end
+if text == "كشف الارتباط" or text == "نسبه الارتباط" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:goo'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":goo_Bots"..msg.chat_id_,"sendonoe")
+Text = '◐︙ ارسل اسم الشخص : \n◐︙ كمثال : *احـمد*'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="كشف الارتباط" and database:get(bot_id..":"..msg.sender_user_id_..":goo_Bots"..msg.chat_id_) == "sendonoe" then
+numj = {"مرتبط 💔😐","خاين 😊😂","ممرتبط 😗","مرتبط ب 10 🙁😂","زاحف على 4 🥰😂",};
+sendnuk = numj[math.random(#numj)]
+local Text = '◐︙ اليك النتائج الخـاصة :\n\n◐︙ نوع الكشف لـ : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = ''..sendnuk..' ‹‹-',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+database:del(bot_id..":"..msg.sender_user_id_..":goo_Bots"..msg.chat_id_)
+end
+if text == "نسبه الغباء" or text == "نسبة الغباء" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:vov'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_,"sendonoe")
+Text = '◐︙ ارسل اسم الشخص : \n◐︙ كمثال : *احـمد*'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه الغباء" and database:get(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_) == "sendonoe" then
+numj = {"😘 10","🥰 20 ","😶 30","🤔 35","😝 75","😴 34","😏 66","😕 82","😭 23","19","55","80","63","32","27","89","99 😂😔","98","79","100 😂😘","8","3 💘","6","0 👋🏻",};
+sendnnk = numj[math.random(#numj)]
+local Text = '◐︙ اليك النتائج الخـاصة :\n\n◐︙ نسبة الغباء لـ : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '-›› '..sendnnk..'%',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+database:del(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_)
+end
+
+if text == "نسبه الزحف" or text == "نسبة الزحف" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:zff'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":zff_Bots"..msg.chat_id_,"sendonoe")
+Text = '◐︙ ارسل اسم الشخص : \n◐︙ كمثال : *احـمد*'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه الزحف" and database:get(bot_id..":"..msg.sender_user_id_..":zff_Bots"..msg.chat_id_) == "sendonoe" then
+numj = {"🤣 10","🥰 20 ","😶 30","🤔 35","😝 75","😴 34","😏 66","😕 82","😭 23","🌚😹 19","😹😔 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘🌚 8","😎 3","😔 6","☹️ 0",};
+sendzff = numj[math.random(#numj)]
+local Text = '◐︙ اليك النتائج الخـاصة :\n\n◐︙ نسبة الزحف لـ : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '-›› '..sendzff..'%',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+database:del(bot_id..":"..msg.sender_user_id_..":zff_Bots"..msg.chat_id_)
+end
+if text == "نسبه الخيانه" or text == "نسبة الخيانة" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:hen'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":hen_Bots"..msg.chat_id_,"sendonoe")
+Text = '◐︙ ارسل اسم الشخص : \n◐︙ كمثال : *احـمد*'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه الخيانه" and database:get(bot_id..":"..msg.sender_user_id_..":hen_Bots"..msg.chat_id_) == "sendonoe" then
+numj = {"👋🏻🌚 10","🌙🥺 20 ","☹️ ↗️ 30","🌚😂 35","😔💔 75","👋🏻🥺 34","💔😶 66","💔😕 82","💔😭 23","💭🌝 19","🙄😂 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘🌚 8","😎 3","😔 6","☹️ 0",};
+sendhen = numj[math.random(#numj)]
+local Text = '◐︙ اليك النتائج الخـاصة :\n\n◐︙ نسبة الزحف لـ : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '-›› '..sendhen..'%',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+database:del(bot_id..":"..msg.sender_user_id_..":hen_Bots"..msg.chat_id_)
 end
 ------------------------------------------------------------------------
 TuBak_Started_Bot(msg,data)
