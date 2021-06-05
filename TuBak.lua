@@ -3681,7 +3681,7 @@ if text == ("عدد الميديا") and cleaner(msg) then
 local gmria = database:scard(bot_id.."TuBak:msg:media"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,"• عدد الميديا الموجود هو (* "..gmria.." *)")
 end
-if text == "امسح" and cleaner(msg) and GetSourseMember(msg) then   
+if text == "امسح" and cleaner(msg) and Constructor(msg) then   
 Msgs = {[0]=msg.id_}
 local Message = msg.id_
 for i=1,200 do
@@ -6675,6 +6675,32 @@ if text == 'رابط الحذف' or text == 'بوت الحذف' then
 Text = [[◐︙ ︙  @LC6BOT   ]]
 send(msg.chat_id_, msg.id_,Text)
 end
+if text == 'الاوامر' and Constructor(msg) then     
+if not Addictive(msg) then
+send(msg.chat_id_, msg.id_,'• عذرا الاوامر هذا لا تخصك ') 
+return false
+end
+local Text =[[
+*ʜɪ ɴɪɢɢᴀ
+●○━━━━━𝘕𝘎━━━━━○●
+•  ① > لعرض اوامر الحمايه
+•  ② > لعرض اوامر الخدميه
+•  ③ > لعرض اوامر المدراء
+•  ④ > لعرض اوامر المنشئين
+•  ⑤ > لعرض اوامر المطورين
+●○━━━━━𝘕𝘎━━━━━○●*
+𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/u5uuuu) •
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '①', callback_data="/help1"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
+{{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"}},
+{{text = 'اوامر التسليه', callback_data="/help10"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
 end ---- Chat_Type = 'GroupBot' 
 end ---- Chat_Type = 'GroupBot' 
 
@@ -7419,6 +7445,341 @@ local From_id = data.id_
 local Msg_id = data.message_id_
 local msg_idd = Msg_id/2097152/0.5
 local DAata = data.payload_.data_
+if DAata == '/help1' then
+if not Addictive(data) then
+local notText = '• عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+*ʜɪ ɴɪɢɢᴀ*
+•اوامر الحمايه
+•قفل + فتح > الامر
+●○━━━━━𝘕𝘎━━━━━○●
+•بالتقيد ، بالطرد ، بالكتم
+●○━━━━━𝘕𝘎━━━━━○●
+• الروابط
+• المعرف
+• التاك
+• الفشار
+• الكفران
+• الشارحه
+• التعديل
+• التثبيت
+• المتحركه
+• الملفات
+• الصور
+• الحمايه
+• الملصقات
+• الفيديو
+• الانلاين
+• الدردشه
+• التوجيه
+• الاغاني
+• الصوت
+• الجهات
+• الاشعارات
+• السوبر
+• الماركداون
+• البوتات
+• التكرار
+• الكلايش
+• السيلفي
+●○━━━━━𝘕𝘎━━━━━○●
+𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/NiggA_SoUrcE)•
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '①', callback_data="/help1"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
+{{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
+{{text = 'الاوامر الرئيسيه', callback_data="/help"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if DAata == '/help2' then
+if not Addictive(data) then
+local notText = '• عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+*ʜɪ ɴɪɢɢᴀ*
+• اوامر الخدميه
+ ●○━━━━𝘕𝘎━━━━○●  
+• كتم
+• حظر
+• طرد
+• منع
+• تقيد
+• تثبيت
+• ايدي
+• جهاتي
+• رسائلي
+• سحكاتي
+• صورتي
+• غنيلي
+• الرابط
+• القوانين
+• الترحيب
+• تاك للكل
+ • المكتومين
+• المحظورين
+• الصلاحيات
+• قائمه المنع
+• المميزين
+• الغاء كتم
+• الغاء حظر
+• الغاء منع
+• الغاء تقيد
+• الغاء تثبيت
+• الاعدادات
+• وضع اسم
+• وضع رابط
+• وضع صوره
+• وضع وصف
+• وضع قوانين
+• وضع ترحيب
+• تفعيل الزخرفه
+• تعطيل الزخرفه
+• تفعيل الابراج
+• تعطيل الابراج
+• تفعيل الانستا
+• تعطيل الانستا
+• كشف البوتات
+• زخرفه + نص
+• تعطيل التنظيف
+• تفعيل التنظيف
+• تعطيل الافلام
+• تفعيل الافلام
+• تعطيل الحمايه
+• تفعيل الحمايه
+• تعطيل صورتي
+• تفعيل صورتي
+• تفعيل حساب العمر
+• تعطيل حساب العمر
+• مسح قائمه المنع
+• مسح المحظورين
+• مسح المميزين
+• مسح القوانين
+• مسح البوتات
+• مسح الصوره
+• عدد الكروب
+• مسح الرابط
+• رفع/تنزيل مميز
+• مسح المكتومين
+• مسح المطرودين
+• مسح الصلاحيات
+• وضع تكرار + العدد
+• الغاء تثبيت الكل
+ • تفعيل/تعطيل الترحيب
+ • احسب + تاريخ ميلاد
+• معلومات + يوزر انستا
+• تفعيل المسح التلقائي
+• تعطيل المسح التلقائي
+ • اضف /مسح صلاحيه
+●○━━━━━𝘕𝘎━━━━━○●
+𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/NiggA_SoUrcE)•
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '①', callback_data="/help1"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
+{{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
+{{text = 'الاوامر الرئيسيه', callback_data="/help"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if DAata == '/help3' then
+if not Addictive(data) then
+local notText = '• عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+*ʜɪ ɴɪɢɢᴀ*
+• اوامر المدير
+●○━━━━━𝘕𝘎━━━━━○● 
+• الادمنيه
+• اضف رد
+• حذف رد
+• رفع ادمن
+• تنزيل الكل
+• رفع القيود
+•  تنزيل ادمن
+• ردود المدير
+• تعين الايدي
+• رفع الادمنيه
+• مسح الايدي
+• كشف القيود
+• مسح الادمنيه
+• تنظيف + عدد
+• تفعيل/تعطيل الرفع
+• تفعيل/تعطيل الايدي
+• تفعيل/تعطيل اطردني
+• تفعيل/تعطيل ردود المدير
+• تفعيل/تعطيل ردود المطور
+• تفعيل/تعطيل الحظر/الطرد
+• تفعيل/تعطيل اللعبه/الالعاب
+• تفعيل/تعطيل الايدي بالصوره
+• تفعيل/تعطيل اوامر التحشيش
+• تفعيل/تعطيل الرابط/جلب الرابط
+●○━━━━━𝘕𝘎━━━━━○●
+𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/NiggA_SoUrcE)•
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '①', callback_data="/help1"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
+{{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
+{{text = 'الاوامر الرئيسيه', callback_data="/help"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if DAata == '/help4' then
+if not Addictive(data) then
+local notText = '• عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+*ʜɪ ɴɪɢɢᴀ*
+• اوامر المنشئين الاساسين 
+●○━━━━━𝘕𝘎━━━━━○● 
+• اوامر المالك ، 
+• المنشئين الاساسين
+• رفع/تنزيل منشئ اساسي
+• مسح المنشئين الاساسين
+• اوامر المنشئ الاساسي
+• المنشئين
+• رفع/تنزيل منشئ
+• مسح المنشئين
+• مسح ردود المدير
+• المنظفين
+• مسح المنظفين
+• رفع/تنزيل منظف
+• رفع/تنزيل مدير
+• المدراء
+• مسح المدراء
+• تعين/مسح الايدي
+• اضف/حذف امر
+• الاوامر المضافه
+• حذف/مسح الاوامر المضافه
+• اضف رسائل + العدد بالرد
+• اضف نقاط + العدد بالرد
+●○━━━━━𝘕𝘎━━━━━○●
+𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/NiggA_SoUrcE) •
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '①', callback_data="/help1"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
+{{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
+{{text = 'الاوامر الرئيسيه', callback_data="/help"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if DAata == '/help5' then
+if not Addictive(data) then
+local notText = '• عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+*ʜɪ ɴɪɢɢᴀ*
+• اوامر المطور الاساسي  
+ ●○━━━━𝘕𝘎━━━━○● 
+• غادر
+• اذاعه
+• المتجر
+• الملفات
+• تحديث
+• المالكين
+• حظر عام
+• الغاء العام
+• المطورين
+• رفع منشئ
+• الاحصائيات
+• اذاعه خاص
+• ردود المطور
+• اوامر المطور
+• اضف رد للكل
+• حذف رد للكل
+• تعطيل الاذاعه
+• مسح المالكين
+• غادر + الايدي
+• تفعيل /تعطيل
+• اذاعه بالتوجيه
+• اذاعه بالتثبيت
+• تفعيل الاذاعه 
+• تعطيل الاذاعه
+• تفعيل المغادرة
+• مسح المطورين
+• رفع/تنزيل مالك
+• مسح قائمه العام
+•  تحديث السورس
+• مسح ردود المطور
+• مسح جميع الملفات
+• اضف /تنزيل مطور 
+• وضع كليشه المطور 
+• حذف كليشه المطور 
+• تفعيل البوت الخدمي 
+• تعطيل البوت الخدمي
+• تفعيل ملف + اسم الملف
+• تعطيل ملف + اسم الملف
+•  تعين عدد الاعضاء + العدد
+●○━━━━━𝘕𝘎━━━━━○● 
+𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/NiggA_SoUrcE)•
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '①', callback_data="/help1"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
+{{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
+{{text = 'الاوامر الرئيسيه', callback_data="/help"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if DAata == '/help10' then
+if not Addictive(data) then
+local notText = '• عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+*ʜɪ ɴɪɢɢᴀ*
+اوامر التسليه 
+●○━━━━𝘕𝘎━━━━○● 
+رفع + تنزيل + الامر
+• اثول
+• جلب
+• مطي
+• صخل
+• زاحف
+• الرفع
+• بكلبي
+• تاج
+• نبي
+●○━━━𝘕𝘎━━━○●
+• الاوامر التاليه بالرد 
+• شنو رئيك بهذا
+• شنو رئيك بهاي
+•نزوج
+ •طلاق
+• بوسه
+• مصه
+• هينه
+• رزله
+●○━━━𝘕𝘎━━━○●
+• نسبه الحب
+• نسبه الانوثه
+• نسبه الرجوله
+●○━━━━𝘕𝘎━━━━○●
+𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/NiggA_SoUrcE)•
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '①', callback_data="/help1"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
+{{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
+{{text = 'الاوامر الرئيسيه', callback_data="/help"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
 if DAata and DAata:match("^animation(.*)$") and Addictive(data) then  
 idch = DAata:match("-100(%d+)")
 local idchci = "-100"..idch
