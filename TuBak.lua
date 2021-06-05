@@ -6973,11 +6973,6 @@ Zs = {
 }
 send_inlin_key(msg.chat_id_,ZsText,Zs,msg.id_)
 end
-if DAata and DAata:match("^twtq(.*)$") and Addictive(data) then  
-local delallph = DAata:match("^twtq(.*)$")
-database:set(bot_id..'Texting:In:Bv',true) 
-send(msg.chat_id_, msg.id_,'≼≽ تم تعطيل التواصل ') 
-end
 if not DevTuBak(msg) and not database:sismember(bot_id..'BaN:In:User',msg.sender_user_id_) and not database:get(bot_id..'Texting:In:Bv') and not database:get(bot_id.."TuBak:Filter"..msg.sender_user_id_) then
 send(msg.sender_user_id_,msg.id_,'≼≽ تمت ارسال رسالتك الى المطور')    
 tdcli_function({ID ="GetChat",chat_id_=Id_Sudo},function(arg,chat)  
