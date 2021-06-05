@@ -6693,10 +6693,13 @@ keyboard.inline_keyboard = {
 {text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية ⁦', callback_data="/help2"},
 },
 {
-{text = 'آوآمر آلمدرآء', callback_data="/help3"},{text = 'آوآمر آلمنشئين', callback_data="/help4"}},
+{text = 'آوآمر آلمدرآء', callback_data="/help3"},{text = 'آوآمر آلمنشئين', callback_data="/help4"},
 },
 {
 {text = 'آوآمر آلمطورين', callback_data="/help5"},
+},
+{
+{text = 'آوآمر آلخدمية', callback_data="/help6"},{text = 'آوآمر آلاعضاء', callback_data="/help7"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
