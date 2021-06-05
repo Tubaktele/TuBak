@@ -6876,7 +6876,7 @@ local Teeeext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'تعطيل التواصل', callback_data="/tw1"},{text = 'تفعيل التواصل', callback_data="/tw2"}},
+{{text = 'تعطيل التواصل', callback_data="twtq"},{text = 'تفعيل التواصل', callback_data="/tw2"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Teeeext).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -6972,6 +6972,11 @@ Zs = {
 {{text = '- اضغط هنا .',callback_data="delallSticker"..Sf}},
 }
 send_inlin_key(msg.chat_id_,ZsText,Zs,msg.id_)
+end
+if DAata and DAata:match("^twtq(.*)$") and Addictive(data) then  
+local delallph = DAata:match("^twtq(.*)$")
+database:set(bot_id..'Texting:In:Bv',true) 
+send(msg.chat_id_, msg.id_,'≼≽ تم تعطيل التواصل ') 
 end
 if not DevTuBak(msg) and not database:sismember(bot_id..'BaN:In:User',msg.sender_user_id_) and not database:get(bot_id..'Texting:In:Bv') and not database:get(bot_id.."TuBak:Filter"..msg.sender_user_id_) then
 send(msg.sender_user_id_,msg.id_,'≼≽ تمت ارسال رسالتك الى المطور')    
@@ -7441,14 +7446,6 @@ local From_id = data.id_
 local Msg_id = data.message_id_
 local msg_idd = Msg_id/2097152/0.5
 local DAata = data.payload_.data_
-if DAata == '/tw2' then  
-database:del(bot_id..'Texting:In:Bv') 
-send(msg.chat_id_, msg.id_,'≼≽ تم تفعيل التواصل ') 
-end
-if DAata == '/tw1' then
-database:set(bot_id..'Texting:In:Bv',true) 
-send(msg.chat_id_, msg.id_,'≼≽ تم تعطيل التواصل ') 
-end
 if DAata == '/help1' then
 if not Addictive(data) then
 local notText = '• عذرا الاوامر هذه لا تخصك'
