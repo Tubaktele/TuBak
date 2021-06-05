@@ -7489,8 +7489,9 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"}},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
-{text = 'آوآمر آلمدرآء', callback_data="/help3"},{{text = 'آوآمر آلمنشئين', callback_data="/help4"}},
+{{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
+{{text = 'آوآمر آلمنشئين', callback_data="/help4"},{text = '⑤', callback_data="/help5"}},
+{{text = 'Not Found', callback_data="/help10"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -7561,8 +7562,9 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"}},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
-{text = 'آوآمر آلمدرآء', callback_data="/help3"},{{text = 'آوآمر آلمنشئين', callback_data="/help4"}},
+{{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
+{{text = 'آوآمر آلمنشئين', callback_data="/help4"},{text = '⑤', callback_data="/help5"}},
+{{text = 'Not Found', callback_data="/help10"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -7608,8 +7610,9 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"}},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
-{text = 'آوآمر آلمدرآء', callback_data="/help3"},{{text = 'آوآمر آلمنشئين', callback_data="/help4"}},
+{{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
+{{text = 'آوآمر آلمنشئين', callback_data="/help4"},{text = '⑤', callback_data="/help5"}},
+{{text = 'Not Found', callback_data="/help10"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -7644,8 +7647,9 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"}},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
-{text = 'آوآمر آلمدرآء', callback_data="/help3"},{{text = 'آوآمر آلمنشئين', callback_data="/help4"}},
+{{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
+{{text = 'آوآمر آلمنشئين', callback_data="/help4"},{text = '⑤', callback_data="/help5"}},
+{{text = 'Not Found', callback_data="/help10"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -7703,8 +7707,9 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"}},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
-{text = 'آوآمر آلمدرآء', callback_data="/help3"},{{text = 'آوآمر آلمنشئين', callback_data="/help4"}},
+{{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
+{{text = 'آوآمر آلمنشئين', callback_data="/help4"},{text = '⑤', callback_data="/help5"}},
+{{text = 'Not Found', callback_data="/help10"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
