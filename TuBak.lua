@@ -7805,7 +7805,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-if text == 'م1' then
+if text == 'م1' DevTuBak(msg) then
 local Teesxt =[[
 اهلا عزيزي
 لايوجد هاكذا اوامر في البوت
