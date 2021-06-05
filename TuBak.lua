@@ -7441,6 +7441,14 @@ local From_id = data.id_
 local Msg_id = data.message_id_
 local msg_idd = Msg_id/2097152/0.5
 local DAata = data.payload_.data_
+if DAata == '/tw2' then  
+database:del(bot_id..'Texting:In:Bv') 
+send(msg.chat_id_, msg.id_,'≼≽ تم تفعيل التواصل ') 
+end
+if DAata == '/tw1' then
+database:set(bot_id..'Texting:In:Bv',true) 
+send(msg.chat_id_, msg.id_,'≼≽ تم تعطيل التواصل ') 
+end
 if DAata == '/help1' then
 if not Addictive(data) then
 local notText = '• عذرا الاوامر هذه لا تخصك'
