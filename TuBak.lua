@@ -6876,9 +6876,9 @@ hello Mohammed
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'تعطيل التواصل ℘', callback_data="/tall"},{text = '②', callback_data="/help2"},{text = '③', callback_data="/help3"}},
-{{text = '④', callback_data="/help4"},{text = '⑤', callback_data="/help5"}},
-{{text = 'اوامر التسليه', callback_data="/help10"}},
+{{text = 'تعطيل التواصل ℘', callback_data="/tall"},{text = '②', callback_data="/helpy2"},{text = '③', callback_data="/helgp3"}},
+{{text = '④', callback_data="/hgelp4"},{text = '⑤', callback_data="/helpu5"}},
+{{text = 'اوامر التسليه', callback_data="/help1g0"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Teeeext).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
