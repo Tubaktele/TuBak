@@ -7024,14 +7024,6 @@ Text = '≼≽ تمت ارسال البصمه اليه .. '
 end     
 sendText(Id_Sudo,Text..'\n'..'≼≽ ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
 end,nil);end,nil);end,nil);end,nil);end 
-if DAata == '/tw1' then
-database:del(bot_id..'Texting:In:Bv') 
-send(msg.chat_id_, msg.id_,'≼≽ تم تفعيل التواصل ') 
-end
-if DAata == '/tw2' then  
-database:set(bot_id..'Texting:In:Bv',true) 
-send(msg.chat_id_, msg.id_,'≼≽ تم تعطيل التواصل ') 
-end
 if text =='الاحصائيات ℘' then
 local Groups = database:scard(bot_id..'TuBak:Chek:Groups')  
 local Users = database:scard(bot_id..'TuBak:UsersBot')  
