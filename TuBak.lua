@@ -7709,7 +7709,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
-{{text = 'آوآمر آلمنشئين', callback_data="/help4"},{text = 'آوآمر آلمطورين', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
+{{text = 'آوآمر آلمنشئين', callback_data="/help4"},
 
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -7782,7 +7782,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
-{{text = 'آوآمر آلمنشئين', callback_data="/help4"},{text = 'آوآمر آلمطورين', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
+{{text = 'آوآمر آلمنشئين', callback_data="/help4"},
 
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -7830,7 +7830,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
-{{text = 'آوآمر آلمنشئين', callback_data="/help4"},{text = 'آوآمر آلمطورين', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
+{{text = 'آوآمر آلمنشئين', callback_data="/help4"},
 
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -7867,7 +7867,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
-{{text = 'آوآمر آلمنشئين', callback_data="/help4"},{text = 'آوآمر آلمطورين', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
+{{text = 'آوآمر آلمنشئين', callback_data="/help4"},
 
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -7927,52 +7927,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
-{{text = 'آوآمر آلمنشئين', callback_data="/help4"},{text = 'آوآمر آلمطورين', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
-
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-if DAata == '/help10' then
-if not Addictive(data) then
-local notText = '• عذرا الاوامر هذه لا تخصك'
-https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
-return false
-end
-local Teext =[[
-*ʜɪ ɴɪɢɢᴀ*
-اوامر التسليه 
-●○━━━━𝘕𝘎━━━━○● 
-رفع + تنزيل + الامر
-• اثول
-• جلب
-• مطي
-• صخل
-• زاحف
-• الرفع
-• بكلبي
-• تاج
-• نبي
-●○━━━𝘕𝘎━━━○●
-• الاوامر التاليه بالرد 
-• شنو رئيك بهذا
-• شنو رئيك بهاي
-•نزوج
- •طلاق
-• بوسه
-• مصه
-• هينه
-• رزله
-●○━━━𝘕𝘎━━━○●
-• نسبه الحب
-• نسبه الانوثه
-• نسبه الرجوله
-●○━━━━𝘕𝘎━━━━○●
-𝘊𝘩 - [𝘕𝘐𝘎𝘎𝘈](t.me/U5UUUU)•
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية', callback_data="/help2"},{text = 'آوآمر آلمدرآء', callback_data="/help3"}},
-{{text = 'آوآمر آلمنشئين', callback_data="/help4"},{text = 'آوآمر آلمطورين', callback_data="/help5"},{text = 'التسليه', callback_data="/help10"}},
+{{text = 'آوآمر آلمنشئين', callback_data="/help4"},
 
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
