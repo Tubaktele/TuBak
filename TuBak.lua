@@ -3708,7 +3708,7 @@ local liste = database:smembers(bot_id.."TuBak:msg:media"..msg.chat_id_)
 for k,v in pairs(liste) do
 local Mesge = v
 if Mesge then
-t = "• تم مسح ("..k..") من الوسائط تلقائيا\n\n• يمكنك تعطيل الميزه بستخدام\N• الامر ( `تعطيل المسح التلقائي` )"
+t = "• تم مسح ("..k..") من الوسائط تلقائيا\n\n• يمكنك تعطيل الميزه بستخدام\n• الامر ( تعطيل المسح التلقائي )"
 DeleteMessage(msg.chat_id_,{[0]=Mesge})
 end
 end
