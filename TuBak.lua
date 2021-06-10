@@ -250,11 +250,11 @@ local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_u
 data = JSON.decode(url)
 if data.Ch_Member.TuBak ~= true then
 Var = false
-Text = "*⌯ عذرا عليك الاشتراك في القناة اولا .*"
+Text = "⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ ."
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '◐ اشترك الان ◑',url="t.me/TubAkx"},
+{text = '- اشترك الان •',url="t.me/TubAkx"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -264,6 +264,7 @@ Var = true
 end
 return Var
 end
+
 function send(chat_id, reply_to_message_id, text)
 local TextParseMode = {ID = "TextParseModeMarkdown"}
 tdcli_function ({ID = "SendMessage",chat_id_ = chat_id,reply_to_message_id_ = reply_to_message_id,disable_notification_ = 1,from_background_ = 1,reply_markup_ = nil,input_message_content_ = {ID = "InputMessageText",text_ = text,disable_web_page_preview_ = 1,clear_draft_ = 0,entities_ = {},parse_mode_ = TextParseMode,},}, dl_cb, nil)
@@ -2535,6 +2536,15 @@ return false
 end
 
 if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 function Function_TuBak(extra, result, success)
 database:sadd(bot_id.."TuBak:Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⌯ تم ترقيته منشئ اساسي")  
@@ -2544,6 +2554,15 @@ return false
 end
 if text and text:match("^رفع منشئ اساسي @(.*)$") and DevBot(msg) then  
 local username = text:match("^رفع منشئ اساسي @(.*)$")
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 function Function_TuBak(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
@@ -2595,6 +2614,15 @@ return false
 end
 
 if text == "رفع منشئ" and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 function Function_TuBak(extra, result, success)
 database:sadd(bot_id.."TuBak:Constructor"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⌯ تم ترقيته منشئ في المجموعه")  
@@ -2603,6 +2631,15 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 end
 if text and text:match("^رفع منشئ @(.*)$") and BasicConstructor(msg) then  
 local username = text:match("^رفع منشئ @(.*)$")
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 function Function_TuBak(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
@@ -2651,6 +2688,15 @@ Reply_Status(msg,userid,"reply","⌯ تم تنزيله من المنشئين")
 end
 
 if text == ("رفع مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 function Function_TuBak(extra, result, success)
 database:sadd(bot_id.."TuBak:Manager"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⌯ تم ترقيته مدير المجموعه")  
@@ -2660,6 +2706,15 @@ return false
 end  
 if text and text:match("^رفع مدير @(.*)$") and Constructor(msg) then  
 local username = text:match("^رفع مدير @(.*)$") 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 function Function_TuBak(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
@@ -2712,6 +2767,15 @@ end
 
 if text == ("رفع ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then  
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 send(msg.chat_id_, msg.id_,'⌯ لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
 return false
 end
@@ -2724,6 +2788,15 @@ return false
 end
 if text and text:match("^رفع ادمن @(.*)$") and Owner(msg) then  
 local username = text:match("^رفع ادمن @(.*)$")
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'⌯ لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
 return false
@@ -2783,6 +2856,15 @@ end
 
 if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then 
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 send(msg.chat_id_, msg.id_,'⌯ لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
 return false
 end
@@ -2796,6 +2878,15 @@ end
 if text and text:match("^رفع مميز @(.*)$") and Addictive(msg) then  
 local username = text:match("^رفع مميز @(.*)$") 
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 send(msg.chat_id_, msg.id_,'⌯ لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
 return false
 end
@@ -2818,6 +2909,15 @@ end
 if text and text:match("^رفع مميز (%d+)$") and Addictive(msg) then  
 local userid = text:match("^رفع مميز (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 send(msg.chat_id_, msg.id_,'⌯ لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
 return false
 end
@@ -2855,7 +2955,25 @@ return false
 end  
 if text and text:match("رفع (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then  
 local RTPA = text:match("رفع (.*)")
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 if database:sismember(bot_id.."TuBak:Coomds"..msg.chat_id_,RTPA) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local TuBakrt = database:get(bot_id.."TuBak:Comd:New:rt:bot:"..RTPA..msg.chat_id_)
@@ -2881,6 +2999,15 @@ end
 end
 if text and text:match("تنزيل (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then  
 local RTPA = text:match("تنزيل (.*)")
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 if database:sismember(bot_id.."TuBak:Coomds"..msg.chat_id_,RTPA) then
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
@@ -2907,6 +3034,15 @@ end
 end
 if text and text:match("^رفع (.*) @(.*)") and Addictive(msg) then  
 local text1 = {string.match(text, "^(رفع) (.*) @(.*)$")}
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 if database:sismember(bot_id.."TuBak:Coomds"..msg.chat_id_,text1[2]) then
 function py_username(extra, result, success)   
 if result.id_ then
@@ -2936,6 +3072,15 @@ end
 end
 if text and text:match("^تنزيل (.*) @(.*)") and Addictive(msg) then  
 local text1 = {string.match(text, "^(تنزيل) (.*) @(.*)$")}
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 if database:sismember(bot_id.."TuBak:Coomds"..msg.chat_id_,text1[2]) then
 function py_username(extra, result, success)   
 if result.id_ then
@@ -4764,6 +4909,15 @@ end
 
 if text and text:match("^رفع القيود @(.*)") and Owner(msg) then 
 local username = text:match("^رفع القيود @(.*)") 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 function Function_TuBak(extra, result, success)
 if result.id_ then
 if DevTuBak(msg) then
@@ -4787,6 +4941,15 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_TuBak, nil)
 end
 if text == "رفع القيود" and Owner(msg) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 function Function_TuBak(extra, result, success)
 if DevTuBak(msg) then
 database:srem(bot_id.."TuBak:GBan:User",result.sender_user_id_)
@@ -5415,7 +5578,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⌯عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n⌯قنـاة البـوت ←\n ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6798,7 +6961,7 @@ name = string.gsub(name,"🐼","👻👻👻🐼👻👻👻👻👻👻👻")
 name = string.gsub(name,"🐇","🕊🕊🕊🕊🕊🐇🕊🕊🕊🕊")
 name = string.gsub(name,"🌑","🌚🌚🌚🌚🌚🌑🌚🌚🌚")
 name = string.gsub(name,"🌚","🌑🌑🌑🌑🌑🌚🌑🌑🌑")
-name = string.gsub(name,"⭐️","🌟🌟🌟????🌟🌟🌟⭐️🌟🌟🌟")
+name = string.gsub(name,"⭐️","🌟🌟🌟????🌟🌟🌟⭐️🌟??🌟")
 name = string.gsub(name,"✨","💫💫💫💫💫✨💫💫💫💫")
 name = string.gsub(name,"⛈","🌨🌨🌨🌨🌨⛈🌨🌨🌨🌨")
 name = string.gsub(name,"🌥","⛅️⛅️⛅️⛅️⛅️⛅️🌥⛅️⛅️⛅️⛅️")
@@ -6808,7 +6971,7 @@ name = string.gsub(name,"👨‍💻","👩‍💻👩‍💻👩‍‍💻👩�
 name = string.gsub(name,"👨‍⌯ ","👩‍⌯ 👩‍⌯ 👩‍⌯ 👩‍⌯ 👩‍⌯ 👩‍⌯ 👨‍⌯ 👩‍⌯ ")
 name = string.gsub(name,"👩‍🍳","👨‍🍳👨‍🍳👨‍🍳👨‍🍳👨‍🍳👩‍🍳👨‍🍳👨‍🍳👨‍🍳")
 name = string.gsub(name,"🧚‍♀","🧚‍♂🧚‍♂🧚‍♂🧚‍♂🧚‍♀🧚‍♂🧚‍♂")
-name = string.gsub(name,"🧜‍♂","🧜‍♀🧜‍♀🧜‍♀🧜‍♀🧜‍♀🧚‍♂🧜‍♀🧜‍♀🧜‍♀")
+name = string.gsub(name,"🧜‍♂","🧜‍♀🧜‍♀🧜‍♀🧜‍♀🧜‍♀🧚‍♂🧜‍♀🧜‍♀??‍♀")
 name = string.gsub(name,"🧝‍♂","🧝‍♀🧝‍♀🧝‍♀🧝‍♀🧝‍♀🧝‍♂🧝‍♀🧝‍♀🧝‍♀")
 name = string.gsub(name,"🙍‍♂️","🙎‍♂️🙎‍♂️🙎‍♂️🙎‍♂️🙎‍♂️🙍‍♂️🙎‍♂️🙎‍♂️🙎‍♂️")
 name = string.gsub(name,"🧖‍♂️","🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♂️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️")
@@ -6921,8 +7084,8 @@ Teext = [[
 ]]
 send(msg.chat_id_, msg.id_,Teext) 
 end
-if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' and AhmedMember(msg) then
-if Addictive(msg) then
+if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then
+if AhmedMember(msg) then
 Text = [[
 *⌯ Welcome to Source*
 *أهلاً بك في سورس* [TuBak Team](t.me/TuBakx)
@@ -6930,16 +7093,16 @@ Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '▷ قناة السورس .',url="t.me/TuBakx"},},
-{{text = '▷ شروحات السورس .',url="t.me/TuBakTEAM"},},
-{{text = '▷ المطور . ',url="t.me/vlvlvI"},{text = '▷ بوت تواصل . ',url="t.me/Y_8ibot"},},
+{{text = '▷ تواصل السورس .',url="t.me/Y_8ibot"},},
+{{text = '▷ شروحات السورس ',url="t.me/TuBakTEAM"},},
 {{text = '▷ كلايش تعين الايدي .',url="https://t.me/Gverr"},},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
-if text == 'م1' or text == 'م2' or text == 'م3' or text == 'م4' or text == 'م5'  and AhmedMember(msg) then
-if Addictive(msg) then
+if text == 'م1' or text == 'م2' or text == 'م3' or text == 'م4' or text == 'م5' then
+if AhmedMember(msg) then
 Text = [[*
 • اهلا بك عزيزي
 • لايوجد هاكذا اوامر في البوت
@@ -6955,20 +7118,18 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
-if text == 'الاوامر' and Constructor(msg) and AhmedMember(msg) then     
-if not Addictive(msg) then
+
+
+if text == 'الاوامر' and Addictive(msg) then    
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n⌯ قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌯قنـاة البـوت ←['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
-end
-send(msg.chat_id_, msg.id_,'• عذرا الاوامر هذا لا تخصك ') 
-return false
-end
+end 
 local Text =[[
 *• قائمة آوامر السورس*
 ●○━━━━━٭×٭━━━━━○●
@@ -7272,7 +7433,7 @@ end
 database:setex(bot_id..'TuBak:Start:Time'..msg.sender_user_id_,60,true)
 return false
 end
-if text == '/play' and AhmedMember(msg) then
+if text == '/play' then
 local Text = '*مرحبا بك في العاب البوت اختر ما تريد *'
 local keyboard = {
 {'▹ نسبة الخيانه .','▹ نسبة الزحف .'},
@@ -7298,7 +7459,7 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-if text == '⌁ رموز مزخرفة ⌁' and AhmedMember(msg) then
+if text == '⌁ رموز مزخرفة ⌁' then
 Text = [[
  ۞ ۩ ✟ 『  』۝ Ξ 道 凸 父 个 ¤ 品 〠 ๛ 𖤍 ᶠᶸᶜᵏᵧₒᵤ ࿐ ⍆ ⍅ ⇭ ༒   𖠃 𖠅 𖠆 𖠊 𖡒 𖡗 𖣩 ꧁ ꧂  〰 𖥓 𖥏 𖥎 𖥌 𖥋 𖥊 𖥈 𖥅 𖥃 𖥂 𖥀 𖤼 𖤹 𖤸 𖤷 𖤶 𖤭 𖤫 𖤪 𖤨 𖤧 𖤥 𖤤 𖤣 𖤢 𖤡 𖤟 𖤞 𖤝 𖤜 𖤛 𖤚 𖤘 𖤙 𖤗 𖤕 𖤓 𖤒 𖤐 ဏ ࿘ ࿗ ࿖ ࿕ ࿑ ࿌ ࿋ ࿊ ࿉ ࿈ ࿇ ࿅ ࿄ ࿃ ࿂ ༼ ༽ ༺ ༻ ༗ ༖ ༕ ⏝ ⏜ ⏎ ၄ ߷ ܛ ׀
 𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 𖢹 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 𖣆 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
@@ -7312,7 +7473,7 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-if text == '⌁ ارقام مزخرفه ⌁' and AhmedMember(msg) then
+if text == '⌁ ارقام مزخرفه ⌁' then
 Text = [[
 *₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₀
 𝟏 𝟐 𝟑 𝟒 𝟓 𝟔 𝟕 𝟖 𝟗 𝟎
