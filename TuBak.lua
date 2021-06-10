@@ -5592,8 +5592,17 @@ database:set(bot_id.."TuBak:Klesh:Id:Bot"..msg.chat_id_,text:match("(.*)"))
 send(msg.chat_id_, msg.id_,'⌯ تم تعين الايدي')    
 end
 
-if text == 'ايدي' and tonumber(msg.reply_to_message_id_) == 0 and not database:get(bot_id..'TuBak:Lock:ID:Bot'..msg.chat_id_) and AhmedMember(msg) then     
+if text == 'ايدي' and tonumber(msg.reply_to_message_id_) == 0 and not database:get(bot_id..'TuBak:Lock:ID:Bot'..msg.chat_id_) then     
 if not database:sismember(bot_id..'TuBak:Spam:Group'..msg.sender_user_id_,text) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ .\n⌯ قنـاة البـوت ← ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 database:sadd(bot_id.."TuBak:Spam:Group"..msg.sender_user_id_,text) 
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
@@ -6912,27 +6921,18 @@ Teext = [[
 ]]
 send(msg.chat_id_, msg.id_,Teext) 
 end
-if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then
+if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' and AhmedMember(msg) then
 if Addictive(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⌯ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n⌯ قنـاة البـوت ← ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 Text = [[
 *⌯ Welcome to Source*
 *أهلاً بك في سورس* [TuBak Team](t.me/TuBakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '• قناة السورس •',url="t.me/TuBakx"},},
-{{text = '• مطور السورس •',url="t.me/vlvlvI"},{text = '• تواصل السورس •',url="t.me/Y_8ibot"},},
-{{text = '• كلايش تعين الايدي •',url="https://t.me/Gverr"},},
-{{text = '• شروحات السورس •',url="t.me/TuBakTEAM"},},
+{{text = '▷ قناة السورس .',url="t.me/TuBakx"},},
+{{text = '▷ شروحات السورس .',url="t.me/TuBakTEAM"},},
+{{text = '▷ المطور . ',url="t.me/vlvlvI"},{text = '▷ بوت تواصل . ',url="t.me/Y_8ibot"},},
+{{text = '▷ كلايش تعين الايدي .',url="https://t.me/Gverr"},},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
